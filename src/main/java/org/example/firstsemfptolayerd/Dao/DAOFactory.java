@@ -1,6 +1,7 @@
-package com.example.layeredarchitecture.Dao;
+package org.example.firstsemfptolayerd.Dao;
 
-import com.example.layeredarchitecture.Dao.custom.impl.*;
+
+import org.example.firstsemfptolayerd.Dao.custom.impl.CustomerDaoImpl;
 
 public class DAOFactory {
     private static DAOFactory instance;
@@ -21,16 +22,8 @@ public class DAOFactory {
         switch(dao){
             case CUSTOMER:
               return new CustomerDaoImpl();
-                 case ITEM:
-                    return new ItemDaoimpl();
-                        case ORDER:
-                            return new OrderDaoimpl();
-                                 case ORDERDETAILS:
-                                     return new OrderDetailDaoimpl();
-                                     case QUARY:
-                                         return new QuaryDaoImpl();
-                                         default:
-                                            return null;
+              default:
+                  return null;
         }
     }
 }

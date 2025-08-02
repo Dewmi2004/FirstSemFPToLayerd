@@ -1,6 +1,8 @@
-package com.example.layeredarchitecture.Dao;
+package org.example.firstsemfptolayerd.Dao;
 
-import com.example.layeredarchitecture.db.DBConnection;
+
+
+import org.example.firstsemfptolayerd.db.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

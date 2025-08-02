@@ -1,4 +1,4 @@
-package com.example.layeredarchitecture.Dao;
+package org.example.firstsemfptolayerd.Dao;
 
 public interface SuperDao {
 

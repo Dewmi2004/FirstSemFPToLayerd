@@ -1,4 +1,4 @@
-package com.example.layeredarchitecture.db;
+package org.example.firstsemfptolayerd.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,7 +11,7 @@ public class DBConnection {
 
     private DBConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/company", "root", "1234");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/aquariumfinal", "root", "1234");
     }
 
     public static DBConnection getDbConnection() throws SQLException, ClassNotFoundException {
