@@ -25,7 +25,7 @@ public class DashBoardController implements Initializable {
 
     @FXML
     private void btnEmployeeOnAction(ActionEvent event) {
-       // nevigateTo("/view/Employee.fxml");
+       nevigateTo("/org/example/firstsemfptolayerd/assests/Employee.fxml");
     };
 
     @FXML
