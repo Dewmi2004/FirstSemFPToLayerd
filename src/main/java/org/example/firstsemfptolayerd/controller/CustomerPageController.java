@@ -1,7 +1,5 @@
 package org.example.firstsemfptolayerd.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -42,6 +40,7 @@ public class CustomerPageController {
         setCellValueFactory();
         setNextId();
         loadTable();
+
     }
 
     private void setCellValueFactory() {

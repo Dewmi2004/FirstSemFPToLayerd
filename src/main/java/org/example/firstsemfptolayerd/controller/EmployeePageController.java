@@ -62,7 +62,7 @@ public class EmployeePageController {
         List<EmployeeDTO> list = employeeBO.getAllEmployees();
         list.sort(Comparator.comparing(EmployeeDTO::getId));
         for (EmployeeDTO e : list) {
-            obc.add(new EmployeeTM(e));
+            obc.add(new EmployeeTM(e.getId(),e.getName(),e.getAddress(),e.getDob(),e.getGender(),e.getContact(),e.getEmail()));
         }
         tblEmployee.setItems(obc);
     }

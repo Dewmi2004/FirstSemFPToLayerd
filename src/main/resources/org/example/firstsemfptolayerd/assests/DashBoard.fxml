@@ -13,7 +13,7 @@
             <children>
                 <ImageView fitHeight="131.0" fitWidth="235.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #ebf3f4;">
                     <image>
-                        <Image url="@../image/lighting-schedule-image.jpg" />
+                        <Image url="@../images/lighting-schedule-image.jpg" />
                     </image>
                 </ImageView>
                 <Label fx:id="lblDash" alignment="CENTER" layoutX="16.0" layoutY="32.0" prefHeight="34.0" prefWidth="198.0" style="-fx-background-color: #7b8ead;" text="DashBoard" textAlignment="RIGHT" textFill="#f8f8f8" textOverrun="CENTER_ELLIPSIS" wrapText="true">
@@ -51,7 +51,7 @@
                     </font></Button>
                 <ImageView fitHeight="150.0" fitWidth="179.0" layoutX="23.0" layoutY="474.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #ebf3f4;">
                     <image>
-                        <Image url="@../image/Aqua%20image.jpg" />
+                        <Image url="@../images/Aqua image.jpg" />
                     </image>
                 </ImageView>
                 <Button layoutX="24.0" layoutY="431.0" mnemonicParsing="false" onAction="#btnPHLevelOnAction" prefHeight="30.0" prefWidth="181.0" style="-fx-background-color: #4b5b64;" text="PH Level" textFill="#ebe3e3" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">

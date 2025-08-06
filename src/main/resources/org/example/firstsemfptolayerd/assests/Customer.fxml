@@ -17,9 +17,9 @@
 
     <children>
         <VBox spacing="20" alignment="TOP_CENTER" prefWidth="860"
+
               AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="20.0">
             <Label style="-fx-font-size: 26px; -fx-text-fill: #1b263b; -fx-font-weight: bold;" text="Customer Management" />
-
             <HBox alignment="CENTER_LEFT" spacing="10">
                 <Label style="-fx-font-size: 16px; -fx-text-fill: #2e4053; -fx-font-weight: bold;" text="Customer ID:" />
                 <Label fx:id="lblCusId" style="-fx-font-size: 16px; -fx-text-fill: #49759c;" text="Auto-generated" />
