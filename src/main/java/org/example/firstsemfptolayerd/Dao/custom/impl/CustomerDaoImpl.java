@@ -34,20 +34,12 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
 
-    @Override
-    public boolean exist(String id) throws SQLException, ClassNotFoundException {
-        return false;
-    }
 
     @Override
     public boolean Delete(String id) throws SQLException, ClassNotFoundException {
         return SQLUtil.executeUpdate("DELETE FROM customer WHERE customer_Id = ? ", id);
     }
 
-    @Override
-    public Customer search(String newValue) throws SQLException, ClassNotFoundException {
-        return null;
-    }
 
     @Override
     public String getNextId() throws SQLException, ClassNotFoundException {

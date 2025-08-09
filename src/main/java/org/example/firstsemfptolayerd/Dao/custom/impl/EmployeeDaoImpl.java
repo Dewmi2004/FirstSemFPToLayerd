@@ -34,10 +34,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
                 e.getName(), e.getAddress(), e.getGender(), e.getDob(), e.getEmail(), e.getContact(), e.getId());
     }
 
-    @Override
-    public boolean exist(String id) throws SQLException, ClassNotFoundException {
-        return false;
-    }
 
     @Override
     public boolean Delete(String id) throws SQLException, ClassNotFoundException {
@@ -53,8 +49,5 @@ public class EmployeeDaoImpl implements EmployeeDao {
         }
         return "E001";
     }
-    @Override
-    public Employee search(String newValue) throws SQLException, ClassNotFoundException {
-        return null;
-    }
+
 }
