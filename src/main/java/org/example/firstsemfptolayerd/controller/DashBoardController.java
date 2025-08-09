@@ -51,8 +51,7 @@ public class DashBoardController implements Initializable {
     }
 
     public void btnsupplierOnAction(ActionEvent actionEvent) {
-      //  nevigateTo("/view/Supplier.fxml");
-    }
+nevigateTo("/org/example/firstsemfptolayerd/assests/Supplier.fxml");    }
 
     public void btnOrderOnAction(ActionEvent actionEvent) {
       //  nevigateTo("/view/Order.fxml");

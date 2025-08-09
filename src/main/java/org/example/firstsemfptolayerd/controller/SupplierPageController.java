@@ -18,20 +18,20 @@ public class SupplierPageController {
     public TextField txtName;
     public TextField txtContact;
     public TextField txtAddress;
-    public ComboBox CBoxSupplyType;
+    public ComboBox<String> CBoxSupplyType;
     public TextField txtEmail;
     public Button btnSave1;
     public Button btnUpdate1;
     public Button btnDelete1;
     public Button btnReset1;
     public Button btnGenerateR1;
-    public TableView tblSupplier;
-    public TableColumn colSupplierId;
-    public TableColumn colName;
-    public TableColumn colContact;
-    public TableColumn colCompanyAddress;
-    public TableColumn colSupplyType;
-    public TableColumn colEmail;
+    public TableView<SupplierTM> tblSupplier;
+    public TableColumn<?,?> colSupplierId;
+    public TableColumn<?,?> colName;
+    public TableColumn<?,?> colContact;
+    public TableColumn<?,?> colCompanyAddress;
+    public TableColumn<?,?> colSupplyType;
+    public TableColumn<?,?> colEmail;
     private final SupplierBO supplierBO = (SupplierBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.SUPPLIER);
 
     public void initialize() throws Exception {
@@ -43,10 +43,10 @@ public class SupplierPageController {
     }
 
     private void setCellValueFactory() {
-        colSupplierId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colSupplierId.setCellValueFactory(new PropertyValueFactory<>("supId"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
-        colCompanyAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colCompanyAddress.setCellValueFactory(new PropertyValueFactory<>("companyAddress"));
         colSupplyType.setCellValueFactory(new PropertyValueFactory<>("supplyType"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
     }
@@ -85,7 +85,7 @@ public class SupplierPageController {
         if (!txtName.getText().matches(namePattern)) errors.append("Invalid name.\n");
         if (!txtContact.getText().matches(contactPattern)) errors.append("Invalid contact.\n");
         if (!txtAddress.getText().matches(addressPattern)) errors.append("Invalid address.\n");
-        if (CBoxSupplyType.getValue() == null || CBoxSupplyType.getValue().isEmpty) errors.append("Supply type required.\n");
+        if (CBoxSupplyType.getValue() == null || CBoxSupplyType.getValue().toString().isEmpty()) errors.append("Supply type required.\n");
         if (!txtEmail.getText().matches(emailPattern)) errors.append("Invalid email.\n");
 
         if (!errors.isEmpty()) {
@@ -94,8 +94,7 @@ public class SupplierPageController {
         }
         return true;
     }
-
-    private SupplierDTO getSupplierData() {
+     private SupplierDTO getSupplierData() {
         return new SupplierDTO(
                 lblSupplierId.getText(),
                 txtName.getText(),
@@ -169,11 +168,10 @@ public class SupplierPageController {
     }
 
     public void btnGenerateROnAction(ActionEvent actionEvent) {
-        // TODO: Implement supplier report generation
     }
 
     public void clickOnAction(MouseEvent mouseEvent) {
-        SupplierTM selectedItem = (SupplierTM) tblSupplier.getSelectionModel().getSelectedItem();
+        SupplierTM selectedItem =  tblSupplier.getSelectionModel().getSelectedItem();
 
         if (selectedItem != null) {
             lblSupplierId.setText(selectedItem.getSupId());
