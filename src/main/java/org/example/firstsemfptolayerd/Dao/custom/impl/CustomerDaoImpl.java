@@ -50,5 +50,18 @@ public class CustomerDaoImpl implements CustomerDao {
         }
         return "C001";
     }
+
+    @Override
+    public Customer searchByPhone(String phone) throws SQLException, ClassNotFoundException {
+        ResultSet rs = SQLUtil.exicute("SELECT customer_Id, customer_Name, customer_Email FROM customer WHERE customer_Contact = ?", phone);
+        if (rs.next()) {
+            return new Customer(
+                    rs.getString("customer_Id"),
+                    rs.getString("customer_Name"),
+                    rs.getString("customer_Email")
+            );
+        }
+        return null;
     }
+}
 

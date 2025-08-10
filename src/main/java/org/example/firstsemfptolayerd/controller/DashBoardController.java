@@ -57,14 +57,14 @@ nevigateTo("/org/example/firstsemfptolayerd/assests/Supplier.fxml");    }
       //  nevigateTo("/view/Order.fxml");
     }
 
-    public void btnTicketOnAction(ActionEvent actionEvent) {nevigateTo("/view/Ticket.fxml");}
+    public void btnTicketOnAction(ActionEvent actionEvent) {nevigateTo("/org/example/firstsemfptolayerd/assests/Ticket.fxml");}
 
     public void btnInventoryOnAction(ActionEvent actionEvent) {
         //nevigateTo("/view/Inventory.fxml");
     }
 
     public void btnItemOnAction(ActionEvent actionEvent) {
-       // nevigateTo("/view/Item.fxml");
+       nevigateTo("/org/example/firstsemfptolayerd/assests/Item.fxml");
     }
 
     public void btnPHLevelOnAction(ActionEvent actionEvent) {

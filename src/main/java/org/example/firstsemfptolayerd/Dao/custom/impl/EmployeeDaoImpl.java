@@ -1,5 +1,7 @@
 package org.example.firstsemfptolayerd.Dao.custom.impl;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.example.firstsemfptolayerd.Dao.SQLUtil;
 import org.example.firstsemfptolayerd.Dao.custom.EmployeeDao;
 import org.example.firstsemfptolayerd.entity.Employee;
@@ -48,6 +50,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
             return String.format("E%03d", idNum);
         }
         return "E001";
+    }
+    public ObservableList<String> getAllEmployeeIds() throws SQLException, ClassNotFoundException {
+        ResultSet rs = SQLUtil.exicute("select employee_Id from employee");
+        ObservableList<String> employeeDtoArrayList = FXCollections.observableArrayList();
+        while (rs.next()) {
+            employeeDtoArrayList.add(rs.getString("employee_Id"));
+        }
+        return  employeeDtoArrayList;
     }
 
 }

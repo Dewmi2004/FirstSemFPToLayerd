@@ -6,6 +6,7 @@ import org.example.firstsemfptolayerd.Dao.custom.CustomerDao;
 import org.example.firstsemfptolayerd.entity.Customer;
 import org.example.firstsemfptolayerd.model.CustomerDTO;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CustomerBOImpl implements CustomerBO {
@@ -61,5 +62,18 @@ public class CustomerBOImpl implements CustomerBO {
     public String getNextCustomerId() throws Exception {
         return customerDAO.getNextId();
 
+    }
+
+    @Override
+    public CustomerDTO searchCustomerByPhone(String phone) throws SQLException, ClassNotFoundException {
+        Customer customer = customerDAO.searchByPhone(phone);
+        if (customer != null) {
+            return new CustomerDTO(
+                    customer.getId(),
+                    customer.getName(),
+                    customer.getEmail()
+            );
+        }
+        return null;
     }
 }

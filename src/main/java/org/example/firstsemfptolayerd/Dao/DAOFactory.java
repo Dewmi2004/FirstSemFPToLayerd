@@ -4,6 +4,7 @@ package org.example.firstsemfptolayerd.Dao;
 import org.example.firstsemfptolayerd.Dao.custom.impl.CustomerDaoImpl;
 import org.example.firstsemfptolayerd.Dao.custom.impl.EmployeeDaoImpl;
 import org.example.firstsemfptolayerd.Dao.custom.impl.SupplierDaoImpl;
+import org.example.firstsemfptolayerd.Dao.custom.impl.TicketDaoImpl;
 
 public class DAOFactory {
     private static DAOFactory instance;
@@ -18,7 +19,7 @@ public class DAOFactory {
 
     }
     public enum DAOtypes{
-        CUSTOMER,EMPLOYEE,SUPPLIER
+        CUSTOMER,EMPLOYEE,SUPPLIER,TICKET
     }
     public SuperDao getDAO(DAOtypes dao){
         switch(dao){
@@ -28,6 +29,8 @@ public class DAOFactory {
               return new EmployeeDaoImpl();
               case SUPPLIER:
               return new SupplierDaoImpl();
+              case TICKET:
+              return new TicketDaoImpl();
               default:
                   return null;
         }

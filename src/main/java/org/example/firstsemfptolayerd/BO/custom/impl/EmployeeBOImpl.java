@@ -1,11 +1,14 @@
 package org.example.firstsemfptolayerd.BO.custom.impl;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.example.firstsemfptolayerd.BO.custom.EmployeeBO;
 import org.example.firstsemfptolayerd.Dao.DAOFactory;
 import org.example.firstsemfptolayerd.Dao.custom.EmployeeDao;
 import org.example.firstsemfptolayerd.entity.Employee;
 import org.example.firstsemfptolayerd.model.EmployeeDTO;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,5 +67,11 @@ public class EmployeeBOImpl implements EmployeeBO {
     @Override
     public String getNextEmployeeId() throws Exception {
         return employeeDAO.getNextId();
+    }
+
+    @Override
+    public ObservableList<String> getAllEmployeeIds() throws SQLException, ClassNotFoundException {
+        List<String> ids = employeeDAO.getAllEmployeeIds();
+        return FXCollections.observableArrayList(ids);
     }
 }

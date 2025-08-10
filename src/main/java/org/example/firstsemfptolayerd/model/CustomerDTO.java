@@ -18,5 +18,10 @@ import lombok.*;
         private String contact;
 
 
+        public CustomerDTO(String id, String name, String email) {
+            this.id = id;
+            this.name = name;
+            this.email = email;
+        }
     }
 

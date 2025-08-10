@@ -17,4 +17,9 @@ public class Customer {
     private String contact;
 
 
+    public Customer(String customerId, String customerName, String customerEmail) {
+        this.id = customerId;
+        this.name = customerName;
+        this.email = customerEmail;
+    }
 }

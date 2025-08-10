@@ -19,7 +19,7 @@ public class SQLUtil {
         }
         return ps.executeQuery();
     }
-    public static boolean executeUpdate(String sql,Object... ob) throws SQLException, ClassNotFoundException {
+    public static boolean executeUpdate(String sql, Object... ob) throws SQLException, ClassNotFoundException {
         Connection conn = DBConnection.getDbConnection().getConnection();
         PreparedStatement ps = conn.prepareStatement(sql);
         for (int i =0 ; i< ob.length;i++){
