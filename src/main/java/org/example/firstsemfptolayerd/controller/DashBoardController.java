@@ -68,6 +68,6 @@ nevigateTo("/org/example/firstsemfptolayerd/assests/Supplier.fxml");    }
     }
 
     public void btnPHLevelOnAction(ActionEvent actionEvent) {
-       // nevigateTo("/view/PHChemical.fxml");
+       nevigateTo("/org/example/firstsemfptolayerd/assests/PHChemical.fxml");
     }
 }
