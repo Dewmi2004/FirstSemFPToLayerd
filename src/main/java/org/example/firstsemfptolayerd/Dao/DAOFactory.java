@@ -16,7 +16,7 @@ public class DAOFactory {
 
     }
     public enum DAOtypes{
-        CUSTOMER,EMPLOYEE,SUPPLIER,TICKET,PH_CHEMICAL,FISH,TANK,CHEMICAL,PLANT
+        CUSTOMER,EMPLOYEE,SUPPLIER,TICKET,PH_CHEMICAL,FISH,TANK,CHEMICAL,PLANT,FOOD
     }
     public SuperDao getDAO(DAOtypes dao){
         switch(dao){
@@ -38,6 +38,8 @@ public class DAOFactory {
               return new ChemicalDaoImpl();
             case PLANT:
               return new PlantDaoImpl();
+              case FOOD:
+              return new FoodDaoImpl();
               default:
                   return null;
         }
