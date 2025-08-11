@@ -6,7 +6,9 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import org.example.firstsemfptolayerd.BO.custom.ChemicalBO;
 import org.example.firstsemfptolayerd.BO.custom.PHChemicalBO;
+import org.example.firstsemfptolayerd.BO.custom.TankBO;
 import org.example.firstsemfptolayerd.BO.custom.impl.BOFactory;
 import org.example.firstsemfptolayerd.model.PHChemicalDTO;
 import org.example.firstsemfptolayerd.view.tdm.PHChemicalTM;
@@ -18,8 +20,9 @@ import java.util.Optional;
 
 public class PHChemicalPageController {
 
-    private final PHChemicalBO phChemicalBO =
-            (PHChemicalBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.PH_CHEMICAL);
+    private final PHChemicalBO phChemicalBO = (PHChemicalBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.PH_CHEMICAL);
+    private final TankBO tankBO = (TankBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.TANK);
+    private final ChemicalBO chemicalBO = (ChemicalBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.CHEMICAL);
     public ComboBox<String> cmbTankId;
     public ComboBox<String> cmbChemicalId;
     public ComboBox<String> cmbPhLevel;
@@ -63,10 +66,8 @@ public class PHChemicalPageController {
     }
 
     private void loadComboData() throws Exception {
-        cmbTankId.setItems(FXCollections.observableArrayList("T001"));
-//        cmbTankId.setItems(TankModel.getTankId());TankBO.getTankID();
-//        cmbChemicalId.setItems(ChemicalModel.getChemicalId());
-        cmbChemicalId.setItems(FXCollections.observableArrayList("CH001"));
+       cmbTankId.setItems(tankBO.getTankIds());
+        cmbChemicalId.setItems(chemicalBO.getAllChemicalIDS());
         cmbPhLevel.setItems(FXCollections.observableArrayList("1","2","3","4","5","6","7","8","9","10","11","12"));
     }
 

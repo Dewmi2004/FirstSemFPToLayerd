@@ -127,7 +127,8 @@ public class EmployeePageController {
         Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Delete this Employee?", ButtonType.YES, ButtonType.NO).showAndWait();
         if (result.isPresent() && result.get() == ButtonType.YES) {
             if (employeeBO.deleteEmployee(id)) {
-                loadTable(); clearFields();
+                loadTable();
+                clearFields();
                 new Alert(Alert.AlertType.INFORMATION, "Deleted").show();
             } else new Alert(Alert.AlertType.ERROR, "Delete Failed").show();
         }
@@ -136,7 +137,9 @@ public class EmployeePageController {
     public void btnUpdateOnAction(ActionEvent actionEvent) throws Exception {
         if (!isValidInput()) return;
         if (employeeBO.updateEmployee(getEmployeeData())) {
-            loadTable(); setNextId(); clearFields();
+            loadTable();
+            setNextId();
+            clearFields();
             new Alert(Alert.AlertType.INFORMATION, "Updated").show();
         }
         else new Alert(Alert.AlertType.ERROR, "Update Failed").show();

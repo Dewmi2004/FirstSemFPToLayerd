@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import org.example.firstsemfptolayerd.BO.custom.FishBO;
+import org.example.firstsemfptolayerd.BO.custom.TankBO;
 import org.example.firstsemfptolayerd.BO.custom.impl.BOFactory;
 import org.example.firstsemfptolayerd.Dao.DAOFactory;
 import org.example.firstsemfptolayerd.Dao.custom.impl.FishDaoImpl;
@@ -45,6 +46,7 @@ public class FishPageController{
     public TableColumn<?,?> clmQuantity;
     private final FishBO fishBO = (FishBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.FISH);
     private final FishDaoImpl fishDaoImpl = (FishDaoImpl) DAOFactory.getInstance().getDAO(DAOFactory.DAOtypes.FISH);
+    private final TankBO tankBO = (TankBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.TANK);
 
     public void initialize() throws Exception {
         setCellValueFactory();
@@ -98,10 +100,9 @@ public class FishPageController{
         new Alert(Alert.AlertType.WARNING, message).show();
     }
 
-    private void ComboDataSet() throws SQLException, ClassNotFoundException {
+    private void ComboDataSet() throws Exception {
         cmbSize.setItems(fishDaoImpl.getFishSize());
-//        cmbTankId.setItems(TankModel.getTankId());tankBO.getTankId():
-        cmbTankId.setItems(FXCollections.observableArrayList("T001"));
+         cmbTankId.setItems(tankBO.getTankIds());
         cmbGender.setItems(fishDaoImpl.getFishGender());
         cmbWaterType.setItems(fishDaoImpl.getFishWatertype());
         cmbCountry.setItems(fishDaoImpl.getFishCountry());
