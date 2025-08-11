@@ -14,7 +14,7 @@ public class BOFactory { private static BOFactory instance;
 
     }
     public enum BOtypes{
-        CUSTOMER,EMPLOYEE,SUPPLIER,TICKET,PH_CHEMICAL,FISH
+        CUSTOMER,EMPLOYEE,SUPPLIER,TICKET,PH_CHEMICAL,FISH,TANK
     }
     public SuperBO getBO(BOFactory.BOtypes bo){
         switch(bo){
@@ -30,6 +30,8 @@ public class BOFactory { private static BOFactory instance;
                 return new PHChemicalBOImpl();
                 case FISH:
                 return new FishBOImpl();
+            case TANK:
+                return new TankBOImpl();
             default:
                 return null;
         }

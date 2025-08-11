@@ -64,7 +64,7 @@ public class PHChemicalPageController {
 
     private void loadComboData() throws Exception {
         cmbTankId.setItems(FXCollections.observableArrayList("T001"));
-//        cmbTankId.setItems(TankModel.getTankId());
+//        cmbTankId.setItems(TankModel.getTankId());TankBO.getTankID();
 //        cmbChemicalId.setItems(ChemicalModel.getChemicalId());
         cmbChemicalId.setItems(FXCollections.observableArrayList("CH001"));
         cmbPhLevel.setItems(FXCollections.observableArrayList("1","2","3","4","5","6","7","8","9","10","11","12"));

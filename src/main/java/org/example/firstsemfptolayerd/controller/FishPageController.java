@@ -100,7 +100,7 @@ public class FishPageController{
 
     private void ComboDataSet() throws SQLException, ClassNotFoundException {
         cmbSize.setItems(fishDaoImpl.getFishSize());
-//        cmbTankId.setItems(TankModel.getTankId());
+//        cmbTankId.setItems(TankModel.getTankId());tankBO.getTankId():
         cmbTankId.setItems(FXCollections.observableArrayList("T001"));
         cmbGender.setItems(fishDaoImpl.getFishGender());
         cmbWaterType.setItems(fishDaoImpl.getFishWatertype());
