@@ -30,4 +30,13 @@ public class CartTM {
     public CartTM(String unitPrice) {
           this.UnitPrice = unitPrice;
     }
+
+    public CartTM(String itemId, String name, String qtyStr, String unitPriceStr, String s, Button btnRemove) {
+         this.ItemId = itemId;
+         this.Name = name;
+         this.Quantity = qtyStr;
+         this.UnitPrice = unitPriceStr;
+         this.Total = s;
+         this.btn = btnRemove;
+    }
 }

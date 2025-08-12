@@ -16,5 +16,5 @@ public interface FishBO extends SuperBO {
 
     ObservableList<String> getAllFishIDS() throws SQLException, ClassNotFoundException;
 
-    FishDTO searchFishByName(String fishId);
+    FishDTO searchFishByName(String fishId) throws SQLException, ClassNotFoundException;
 }

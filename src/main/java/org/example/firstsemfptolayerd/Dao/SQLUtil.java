@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class SQLUtil {
 
-    public static ResultSet exicute(String sql,Object... ob) throws SQLException, ClassNotFoundException {
+    public static ResultSet exicute(String sql, Object... ob) throws SQLException, ClassNotFoundException {
         Connection conn = DBConnection.getDbConnection().getConnection();
         PreparedStatement ps = conn.prepareStatement(sql);
         for (int i=0 ; i< ob.length;i++){

@@ -73,8 +73,8 @@ public class FishBOImpl implements FishBO {
         return FXCollections.observableArrayList(ids);    }
 
     @Override
-    public FishDTO searchFishByName(String fishId) {
-        FishDTO fish = fishDao.searchPlantByName(fishId);
+    public FishDTO searchFishByName(String fishId) throws SQLException, ClassNotFoundException {
+        FishDTO fish = fishDao.searchfishByName(fishId);
         if (fish != null) {
             return new FishDTO(
                     fish.getName()

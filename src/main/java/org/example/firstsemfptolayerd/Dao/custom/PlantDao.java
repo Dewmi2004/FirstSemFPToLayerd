@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface PlantDao extends CrudDao<Plant> {
-    PlantDTO searchPlantByName(String plantname) throws SQLException, ClassNotFoundException;
+    PlantDTO searchPlantByName(String plantId) throws SQLException, ClassNotFoundException;
 
     List<String> getAllPlantIds() throws SQLException, ClassNotFoundException;
 

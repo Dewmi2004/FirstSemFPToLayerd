@@ -28,7 +28,6 @@ private final FishBO fishBO = (FishBO) BOFactory.getInstance().getBO(BOFactory.B
 
         txtQty.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
             try {
-//                txtQty validation
                 OrderPageController.fishQty = Integer.parseInt(txtQty.getText());
             }catch (NumberFormatException e) {
             }

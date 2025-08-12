@@ -2,38 +2,12 @@ package org.example.firstsemfptolayerd.Dao.custom.impl;
 
 import org.example.firstsemfptolayerd.Dao.SQLUtil;
 import org.example.firstsemfptolayerd.Dao.custom.CartDao;
-import org.example.firstsemfptolayerd.entity.Cart;
 import org.example.firstsemfptolayerd.model.CartDTO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class CartDaoImpl implements CartDao {
-//    @Override
-//    public ArrayList<Cart> getAll() throws SQLException, ClassNotFoundException {
-//        return null;
-//    }
-//
-//    @Override
-//    public boolean Save(Cart dto) throws SQLException, ClassNotFoundException {
-//        return false;
-//    }
-//
-//    @Override
-//    public boolean update(Cart dto) throws SQLException, ClassNotFoundException {
-//        return false;
-//    }
-//
-//    @Override
-//    public boolean Delete(String id) throws SQLException, ClassNotFoundException {
-//        return false;
-//    }
-//
-//    @Override
-//    public String getNextId() throws SQLException, ClassNotFoundException {
-//        return "";
-//    }
 
     @Override
     public CartDTO searchPlantUnitPrice(String plantId) throws SQLException, ClassNotFoundException {

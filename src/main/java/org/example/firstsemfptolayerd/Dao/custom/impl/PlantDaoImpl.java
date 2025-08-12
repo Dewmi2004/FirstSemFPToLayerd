@@ -86,7 +86,7 @@ public class PlantDaoImpl implements PlantDao {
 
     @Override
     public List<String> getAllPlantIds() throws SQLException, ClassNotFoundException {
-        ResultSet rs = SQLUtil.exicute("select plant_Id from plant");
+        ResultSet rs = SQLUtil.exicute("SELECT plant_Id FROM plant");
         ObservableList<String> plantDtoArrayList = FXCollections.observableArrayList();
         while (rs.next()) {
             plantDtoArrayList.add(rs.getString("plant_Id"));
