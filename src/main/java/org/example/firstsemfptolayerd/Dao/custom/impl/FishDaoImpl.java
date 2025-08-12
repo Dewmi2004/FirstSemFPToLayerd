@@ -5,10 +5,12 @@ import javafx.collections.ObservableList;
 import org.example.firstsemfptolayerd.Dao.SQLUtil;
 import org.example.firstsemfptolayerd.Dao.custom.FishDao;
 import org.example.firstsemfptolayerd.entity.Fish;
+import org.example.firstsemfptolayerd.model.FishDTO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class FishDaoImpl implements FishDao {
     @Override
@@ -79,5 +81,26 @@ public class FishDaoImpl implements FishDao {
         return FXCollections.observableArrayList(
                 "Sri Lanka", "Maldives", "Djibouti", "Australia", "Japan",
                 "Brazil", "Somalia", "United States", "Indonesia", "Ghana", "Malaysia");
+    }
+
+    @Override
+    public List<String> getAllfishIds() throws SQLException, ClassNotFoundException {
+        ResultSet rs = SQLUtil.exicute("select fish_Id from fish");
+        ObservableList<String> fishDtoArrayList = FXCollections.observableArrayList();
+        while (rs.next()) {
+            fishDtoArrayList.add(rs.getString("fish_Id"));
+        }
+        return  fishDtoArrayList;
+    }
+
+    @Override
+    public FishDTO searchfishByName(String fishId) throws SQLException, ClassNotFoundException {
+        ResultSet rs = SQLUtil.exicute("SELECT name FROM fish WHERE fish_Id = ?", fishId);
+        if (rs.next()) {
+            return new FishDTO(
+                    rs.getString("name")
+            );
+        }
+        return null;
     }
 }

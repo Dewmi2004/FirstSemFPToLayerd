@@ -1,12 +1,18 @@
 package org.example.firstsemfptolayerd.BO.custom.impl;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.example.firstsemfptolayerd.BO.custom.PlantBO;
 import org.example.firstsemfptolayerd.Dao.DAOFactory;
 import org.example.firstsemfptolayerd.Dao.custom.PlantDao;
+import org.example.firstsemfptolayerd.entity.Customer;
 import org.example.firstsemfptolayerd.entity.Plant;
+import org.example.firstsemfptolayerd.model.CustomerDTO;
 import org.example.firstsemfptolayerd.model.PlantDTO;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PlantBOImpl implements PlantBO {
     private final PlantDao plantDAO = (PlantDao) DAOFactory.getInstance().getDAO(DAOFactory.DAOtypes.PLANT);
@@ -59,5 +65,22 @@ public class PlantBOImpl implements PlantBO {
     @Override
     public String getNextPlantId() throws Exception {
         return plantDAO.getNextId();
+    }
+
+    @Override
+    public PlantDTO searchPlantByName(String plantId) throws SQLException, ClassNotFoundException {
+        PlantDTO plant = plantDAO.searchPlantByName(plantId);
+        if (plant != null) {
+            return new PlantDTO(
+                    plant.getName()
+            );
+        }
+        return null;
+    }
+
+    @Override
+    public ObservableList<String> getAllPlantIDS() throws SQLException, ClassNotFoundException {
+        List<String> ids = plantDAO.getAllPlantIds();
+        return FXCollections.observableArrayList(ids);
     }
 }

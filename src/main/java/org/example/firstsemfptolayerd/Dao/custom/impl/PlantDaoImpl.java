@@ -1,12 +1,17 @@
 package org.example.firstsemfptolayerd.Dao.custom.impl;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.example.firstsemfptolayerd.Dao.SQLUtil;
 import org.example.firstsemfptolayerd.Dao.custom.PlantDao;
 import org.example.firstsemfptolayerd.entity.Plant;
+import org.example.firstsemfptolayerd.model.CartDTO;
+import org.example.firstsemfptolayerd.model.PlantDTO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PlantDaoImpl implements PlantDao {
     @Override
@@ -67,4 +72,27 @@ public class PlantDaoImpl implements PlantDao {
             return String.format("PL%03d", num + 1);
         }
         return "PL001";    }
+
+    @Override
+    public PlantDTO searchPlantByName(String plantId) throws SQLException, ClassNotFoundException {
+        ResultSet rs = SQLUtil.exicute("SELECT name FROM plant WHERE plant_Id = ?", plantId);
+        if (rs.next()) {
+            return new PlantDTO(
+                    rs.getString("name")
+            );
+        }
+        return null;
+    }
+
+    @Override
+    public List<String> getAllPlantIds() throws SQLException, ClassNotFoundException {
+        ResultSet rs = SQLUtil.exicute("select plant_Id from plant");
+        ObservableList<String> plantDtoArrayList = FXCollections.observableArrayList();
+        while (rs.next()) {
+            plantDtoArrayList.add(rs.getString("plant_Id"));
+        }
+        return  plantDtoArrayList;
+    }
+
+
 }

@@ -15,4 +15,7 @@ public class PlantDTO {
     private String size;
     private String quantity;
 
+    public PlantDTO(String plantId) {
+        this.plantId = plantId;
+    }
 }

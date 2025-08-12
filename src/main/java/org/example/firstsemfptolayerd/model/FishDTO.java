@@ -18,4 +18,7 @@ public class FishDTO {
     private String colour;
     private String quantity;
 
+    public FishDTO(String fishId) {
+        this.fishId = fishId;
+    }
 }

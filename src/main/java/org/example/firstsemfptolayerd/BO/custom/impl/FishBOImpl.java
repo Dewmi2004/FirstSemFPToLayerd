@@ -1,12 +1,17 @@
 package org.example.firstsemfptolayerd.BO.custom.impl;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.example.firstsemfptolayerd.BO.custom.FishBO;
 import org.example.firstsemfptolayerd.Dao.DAOFactory;
 import org.example.firstsemfptolayerd.Dao.custom.FishDao;
 import org.example.firstsemfptolayerd.entity.Fish;
 import org.example.firstsemfptolayerd.model.FishDTO;
+import org.example.firstsemfptolayerd.model.PlantDTO;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class FishBOImpl implements FishBO {
     private final FishDao fishDao = (FishDao) DAOFactory.getInstance().getDAO(DAOFactory.DAOtypes.FISH);
@@ -60,5 +65,21 @@ public class FishBOImpl implements FishBO {
     @Override
     public String getNextFishId() throws Exception {
         return fishDao.getNextId();
+    }
+
+    @Override
+    public ObservableList<String> getAllFishIDS() throws SQLException, ClassNotFoundException {
+        List<String> ids = fishDao.getAllfishIds();
+        return FXCollections.observableArrayList(ids);    }
+
+    @Override
+    public FishDTO searchFishByName(String fishId) {
+        FishDTO fish = fishDao.searchPlantByName(fishId);
+        if (fish != null) {
+            return new FishDTO(
+                    fish.getName()
+            );
+        }
+        return null;
     }
 }
