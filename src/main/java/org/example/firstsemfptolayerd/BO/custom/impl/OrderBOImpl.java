@@ -2,9 +2,11 @@ package org.example.firstsemfptolayerd.BO.custom.impl;
 
 import org.example.firstsemfptolayerd.BO.custom.OrderBO;
 import org.example.firstsemfptolayerd.Dao.DAOFactory;
-import org.example.firstsemfptolayerd.Dao.SQLUtil;
 import org.example.firstsemfptolayerd.Dao.custom.OrderDao;
 import org.example.firstsemfptolayerd.db.DBConnection;
+import org.example.firstsemfptolayerd.entity.Fish;
+import org.example.firstsemfptolayerd.entity.Order;
+import org.example.firstsemfptolayerd.entity.Plant;
 import org.example.firstsemfptolayerd.model.*;
 
 import java.sql.Connection;
@@ -26,7 +28,7 @@ public class OrderBOImpl implements OrderBO {
     }
 
     @Override
-    public boolean placeOrder(OrderDTO order, FishDTO fish, PlantDTO plant, ArrayList<CartDTO> cartDTOList, double total, String text) throws SQLException, ClassNotFoundException {
+    public boolean placeOrder(Order order, Fish fish, Plant plant, ArrayList<CartDTO> cartDTOList, double total, String text) throws SQLException, ClassNotFoundException {
         Connection con = DBConnection.getDbConnection().getConnection();
         con.setAutoCommit(false);
         try {

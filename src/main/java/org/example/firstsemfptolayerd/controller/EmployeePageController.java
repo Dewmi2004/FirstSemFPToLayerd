@@ -24,7 +24,6 @@ public class EmployeePageController {
     public TableColumn<?,?> clmName;
     public TableColumn<?,?> clmEmployeeId;
     public TableView<EmployeeTM> tblEmployee;
-    public Button btnGReport;
     public Button btnReset;
     public Button btnDelete;
     public Button btnUpdate;
@@ -37,6 +36,8 @@ public class EmployeePageController {
     public TextField txtName;
     public Label lblEmployeeid;
     private final EmployeeBO employeeBO = (EmployeeBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.EMPLOYEE);
+    public Button btnEmail;
+
     public void initialize() throws Exception {
         setCellValueFactory();
         setNextId();
@@ -110,7 +111,11 @@ public class EmployeePageController {
         setNextId();
     }
 
-    public void btnGenarateROnAction(ActionEvent actionEvent) {
+    public void btnEmailOnAction(ActionEvent actionEvent) {
+        String name = txtName.getText();
+        String email = txtEmail.getText();
+
+        org.example.firstsemfptolayerd.Dao.EmailUtil.sendEmployeeWelcomeEmail(email,name );
     }
 
     public void btnResetOnAction(ActionEvent actionEvent) throws Exception {
@@ -166,6 +171,7 @@ public class EmployeePageController {
             btnSave.setDisable(true);
             btnUpdate.setDisable(false);
             btnDelete.setDisable(false);
+            btnEmail.setDisable(false);
         }
     }
 }

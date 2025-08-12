@@ -11,6 +11,10 @@ import org.example.firstsemfptolayerd.AppInitializer;
 import org.example.firstsemfptolayerd.BO.custom.CustomerBO;
 import org.example.firstsemfptolayerd.BO.custom.OrderBO;
 import org.example.firstsemfptolayerd.BO.custom.impl.BOFactory;
+import org.example.firstsemfptolayerd.Dao.EmailUtil;
+import org.example.firstsemfptolayerd.entity.Fish;
+import org.example.firstsemfptolayerd.entity.Order;
+import org.example.firstsemfptolayerd.entity.Plant;
 import org.example.firstsemfptolayerd.model.*;
 import org.example.firstsemfptolayerd.view.tdm.CartTM;
 
@@ -208,7 +212,7 @@ public class OrderPageController {
         }
 
         try {
-            OrderDTO order = new OrderDTO(
+            Order order = new Order(
                     lblOrderrid.getText(),
                     lblPaymentId.getText(),
                     Date.valueOf(datePickerDate.getValue()),
@@ -218,8 +222,8 @@ public class OrderPageController {
                     lblTotalAmount.getText()
             );
 
-            PlantDTO plant = new PlantDTO(plantId, null, null, null, null, null, null, null, String.valueOf(plantQty));
-            FishDTO fish = new FishDTO(fishId, null, null, null, null, null, null, null, String.valueOf(fishQty));
+            Plant plant = new Plant(plantId, null, null, null, null, String.valueOf(plantQty));
+            Fish fish = new Fish(fishId, null, null, null, null, null, null, null, String.valueOf(fishQty));
 
             ArrayList<CartDTO> cartDTOList = new ArrayList<>();
             for (CartTM tm : cartList) {
@@ -228,6 +232,7 @@ public class OrderPageController {
 
             boolean isPlaced = orderBO.placeOrder(order, fish, plant, cartDTOList, total, lblcustomerEmail.getText());
             if (isPlaced) {
+                EmailUtil.sendOrderAllert(total,lblcustomerEmail.getText(), CustomerId.getText());
                 showAlert(Alert.AlertType.INFORMATION, "Order placed successfully!");
                 clearFields();
                 setNextOrderId();

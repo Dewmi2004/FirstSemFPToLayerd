@@ -3,6 +3,7 @@ module org.example.firstsemfptolayerd {
     requires javafx.fxml;
     requires java.sql;
     requires static lombok;
+    requires jakarta.mail;
 
 
     opens org.example.firstsemfptolayerd.controller to javafx.fxml;

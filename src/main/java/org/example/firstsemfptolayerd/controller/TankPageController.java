@@ -23,7 +23,6 @@ public class TankPageController {
     public Button btnUpdate1;
     public Button btnDelete1;
     public Button btnReset1;
-    public Button btnGenarateR1;
     public TableView<TankTM> tblTank;
     public TableColumn<?,?> colTankId;
     public TableColumn<?,?> colGlassType;
@@ -143,9 +142,6 @@ public class TankPageController {
          CBoxTank.getSelectionModel().clearSelection();
          CBoxWater.getSelectionModel().clearSelection();
          setNextId();
-    }
-
-    public void btnGenarateROnAction(ActionEvent actionEvent) {
     }
 
     public void btnclickOnAction(MouseEvent mouseEvent) {

@@ -21,10 +21,10 @@ public class EmployeeBOImpl implements EmployeeBO {
                 employee.getId(),
                 employee.getName(),
                 employee.getAddress(),
-                employee.getGender(),
                 employee.getDob(),
-                employee.getEmail(),
-                employee.getContact()
+                employee.getGender(),
+                employee.getContact(),
+                employee.getEmail()
         ));
     }
 
@@ -34,10 +34,10 @@ public class EmployeeBOImpl implements EmployeeBO {
                 employee.getId(),
                 employee.getName(),
                 employee.getAddress(),
-                employee.getGender(),
                 employee.getDob(),
-                employee.getEmail(),
-                employee.getContact()
+                employee.getGender(),
+                employee.getContact(),
+                employee.getEmail()
         ));
     }
 
@@ -50,15 +50,15 @@ public class EmployeeBOImpl implements EmployeeBO {
     public List<EmployeeDTO> getAllEmployees() throws Exception {
         ArrayList<Employee> entities = employeeDAO.getAll();
         ArrayList<EmployeeDTO> dtos = new ArrayList<>();
-        for (Employee e : entities) {
+        for (Employee employee : entities) {
             dtos.add(new EmployeeDTO(
-                    e.getId(),
-                    e.getName(),
-                    e.getAddress(),
-                    e.getGender(),
-                    e.getDob(),
-                    e.getEmail(),
-                    e.getContact()
+                    employee.getId(),
+                    employee.getName(),
+                    employee.getAddress(),
+                    employee.getDob(),
+                    employee.getGender(),
+                    employee.getContact(),
+                    employee.getEmail()
             ));
         }
         return dtos;

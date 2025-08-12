@@ -26,14 +26,15 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     public boolean Save(Employee e) throws SQLException, ClassNotFoundException {
         return SQLUtil.executeUpdate("INSERT INTO employee VALUES(?,?,?,?,?,?,?)",
-                e.getId(), e.getName(), e.getAddress(), e.getGender(),
-                e.getDob(), e.getEmail(), e.getContact());
+                e.getId(), e.getName(), e.getAddress(), e.getDob(), e.getGender(), e.getContact(),
+                e.getEmail());
     }
 
     @Override
     public boolean update(Employee e) throws SQLException, ClassNotFoundException {
         return SQLUtil.executeUpdate("UPDATE employee SET employee_Name=?, employee_Address=?, employee_Gender=?, employee_Dob=?, employee_Email=?, employee_Contact=? WHERE employee_Id=?",
-                e.getName(), e.getAddress(), e.getGender(), e.getDob(), e.getEmail(), e.getContact(), e.getId());
+                e.getName(), e.getAddress(), e.getDob(), e.getGender(), e.getContact(),
+                e.getEmail(), e.getId());
     }
 
 

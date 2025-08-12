@@ -15,24 +15,25 @@ public class CustomerBOImpl implements CustomerBO {
     @Override
     public boolean saveCustomer(CustomerDTO customer) throws Exception {
         return customerDAO.Save(new Customer(  customer.getId(),
-                customer.getContact(),
-                customer.getEmail(),
-                customer.getDob(),
-                customer.getGender(),
-                customer.getAddress(),
-                customer.getName()));
+            customer.getName(),
+            customer.getAddress(),
+            customer.getGender(),
+            customer.getDob(),
+            customer.getEmail(),
+            customer.getContact()));
+
 
     }
 
     @Override
     public boolean updateCustomer(CustomerDTO customer) throws Exception {
         return customerDAO.update(new Customer(  customer.getId(),
-                customer.getContact(),
-                customer.getEmail(),
-                customer.getDob(),
-                customer.getGender(),
+                customer.getName(),
                 customer.getAddress(),
-                customer.getName()));
+                customer.getGender(),
+                customer.getDob(),
+                customer.getEmail(),
+                customer.getContact()));
     }
 
 
@@ -47,12 +48,12 @@ public class CustomerBOImpl implements CustomerBO {
         ArrayList<CustomerDTO> customerDTOs = new ArrayList<>();
         for(Customer customer : entity){
             customerDTOs.add(new CustomerDTO(  customer.getId(),
-                    customer.getContact(),
-                    customer.getEmail(),
-                    customer.getDob(),
-                    customer.getGender(),
+                    customer.getName(),
                     customer.getAddress(),
-                    customer.getName()));
+                    customer.getGender(),
+                    customer.getDob(),
+                    customer.getEmail(),
+                    customer.getContact()));
         }
         return customerDTOs;
 

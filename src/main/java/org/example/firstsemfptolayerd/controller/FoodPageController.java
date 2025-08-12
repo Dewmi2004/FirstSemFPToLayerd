@@ -26,7 +26,6 @@ public class FoodPageController {
     public Button btnUpdate;
     public Button btnDelete;
     public Button btnReset;
-    public Button btnGenarateR;
     public TableView<FoodTM> tblFood;
     public TableColumn<?,?> clmFoodId;
     public TableColumn<?,?> clmName;
@@ -104,9 +103,6 @@ public class FoodPageController {
             btnUpdate.setDisable(false);
             btnDelete.setDisable(false);
         }
-    }
-
-    public void btnGenarateROnAction(ActionEvent actionEvent) {
     }
 
     public void btnResetOnAction(ActionEvent actionEvent) throws Exception {

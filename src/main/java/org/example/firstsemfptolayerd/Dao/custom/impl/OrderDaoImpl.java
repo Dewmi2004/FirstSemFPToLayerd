@@ -2,12 +2,10 @@ package org.example.firstsemfptolayerd.Dao.custom.impl;
 
 import org.example.firstsemfptolayerd.Dao.SQLUtil;
 import org.example.firstsemfptolayerd.Dao.custom.OrderDao;
-import org.example.firstsemfptolayerd.db.DBConnection;
-import org.example.firstsemfptolayerd.model.FishDTO;
-import org.example.firstsemfptolayerd.model.OrderDTO;
-import org.example.firstsemfptolayerd.model.PlantDTO;
+import org.example.firstsemfptolayerd.entity.Fish;
+import org.example.firstsemfptolayerd.entity.Order;
+import org.example.firstsemfptolayerd.entity.Plant;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -38,7 +36,7 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public boolean saveOrder(OrderDTO order) throws SQLException, ClassNotFoundException {
+    public boolean saveOrder(Order order) throws SQLException, ClassNotFoundException {
        return SQLUtil.executeUpdate(
                 "INSERT INTO orders(order_Id, payment_Id,date, customer_Id, item) VALUES (?, ?, ?, ?, ?)",
                 order.getOrderId(), order.getPaymentId(), order.getDate(), order.getCustomerId(), order.getItemType()
@@ -46,7 +44,7 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public boolean SavePayment(OrderDTO order) throws SQLException, ClassNotFoundException {
+    public boolean SavePayment(Order order) throws SQLException, ClassNotFoundException {
        return SQLUtil.executeUpdate(
                 "INSERT INTO payment(payment_Id,method,date,amount) VALUES (?,?,?,?)",
                 order.getPaymentId(),order.getMethod(),order.getDate(),order.getAmount()
@@ -55,7 +53,7 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public boolean saveFish(OrderDTO order, FishDTO fish) throws SQLException, ClassNotFoundException {
+    public boolean saveFish(Order order, Fish fish) throws SQLException, ClassNotFoundException {
        return SQLUtil.executeUpdate(
                 "INSERT INTO order_fish(order_Id, fish_Id) VALUES (?, ?)",
                 order.getOrderId(),fish.getFishId()
@@ -63,7 +61,7 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public boolean updateFish(FishDTO fish) throws SQLException, ClassNotFoundException {
+    public boolean updateFish(Fish fish) throws SQLException, ClassNotFoundException {
         return SQLUtil.executeUpdate(
                 "UPDATE fish SET quantity = quantity - ? WHERE fish_Id = ?",
                 fish.getQuantity(), fish.getFishId()
@@ -72,7 +70,7 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public boolean savePlant(OrderDTO order, PlantDTO plant) throws SQLException, ClassNotFoundException {
+    public boolean savePlant(Order order, Plant plant) throws SQLException, ClassNotFoundException {
         return SQLUtil.executeUpdate(
                 "INSERT INTO order_plant(order_Id, plant_Id) VALUES (?, ?)",
                 order.getOrderId(),plant.getPlantId()
@@ -80,7 +78,7 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public boolean updatePlant(PlantDTO plant) throws SQLException, ClassNotFoundException {
+    public boolean updatePlant(Plant plant) throws SQLException, ClassNotFoundException {
         return SQLUtil.executeUpdate(
                 "UPDATE plant SET quantity = quantity - ? WHERE plant_Id = ?",
                 plant.getQuantity(), plant.getPlantId()

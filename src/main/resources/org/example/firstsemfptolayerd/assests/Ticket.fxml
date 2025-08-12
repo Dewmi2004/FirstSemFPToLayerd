@@ -110,9 +110,7 @@
                 <Button fx:id="btnReset1" onAction="#btnResetOnAction"
                         text="Reset"
                         style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-font-weight: bold;" />
-                <Button fx:id="btnGenarateR1" onAction="#btnGenarateROnAction"
-                        text="Generate Report"
-                        style="-fx-background-color: #1a237e; -fx-text-fill: white; -fx-font-weight: bold;" />
+
             </HBox>
 
             <TableView fx:id="tblTicket" onMouseClicked="#tblclickOnAction"

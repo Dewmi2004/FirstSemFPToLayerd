@@ -32,7 +32,6 @@ public class PHChemicalPageController {
     public Button btnUpdate;
     public Button btnDelete;
     public Button btnReset;
-    public Button btnGReport;
     public TableView<PHChemicalTM> tblPHChemical;
     public TableColumn<?,?> clmTankId;
     public TableColumn<?,?> clmChemicalId;
@@ -128,9 +127,6 @@ public class PHChemicalPageController {
 
     public void btnResetOnAction(ActionEvent actionEvent) {
         resetForm();
-    }
-
-    public void btnGenerateROnAction(ActionEvent actionEvent) {
     }
 
     public void clickOnAction(MouseEvent mouseEvent) {

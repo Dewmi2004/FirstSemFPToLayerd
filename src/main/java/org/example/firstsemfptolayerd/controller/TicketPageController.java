@@ -36,7 +36,6 @@ public class TicketPageController {
     public Button btnUpdate1;
     public Button btnDelete1;
     public Button btnReset1;
-    public Button btnGenarateR1;
     public TableView<TicketTM> tblTicket;
     public TableColumn<?,?> colTicketId;
     public TableColumn<?,?> colAge;
@@ -172,8 +171,6 @@ public class TicketPageController {
         tblTicket.getSelectionModel().clearSelection();
     }
 
-    public void btnGenarateROnAction(ActionEvent actionEvent) {
-    }
 
     public void tblclickOnAction(MouseEvent mouseEvent) {
         TicketTM selected = tblTicket.getSelectionModel().getSelectedItem();

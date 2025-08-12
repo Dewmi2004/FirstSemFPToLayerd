@@ -63,7 +63,7 @@
                 <Button fx:id="btnUpdate" onAction="#btnUpdateOnAction" style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-font-weight: bold;" text="Update" />
                 <Button fx:id="btnDelete" onAction="#btnDeleteOnAction" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;" text="Delete" />
                 <Button fx:id="btnReset" onAction="#btnResetOnAction" style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-font-weight: bold;" text="Reset" />
-                <Button fx:id="btnGReport" onAction="#btnGenarateROnAction" style="-fx-background-color: #1a237e; -fx-text-fill: white; -fx-font-weight: bold;" text="Generate Report" />
+                <Button fx:id="btnEmail" onAction="#btnEmailOnAction" style="-fx-background-color: #1a237e; -fx-text-fill: white; -fx-font-weight: bold;" text="Generate Report" />
             </HBox>
             <VBox alignment="TOP_CENTER" prefWidth="860" spacing="20" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
 

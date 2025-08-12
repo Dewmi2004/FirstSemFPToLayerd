@@ -33,7 +33,6 @@ public class FishPageController{
     public Button btnUpdate;
     public Button btnDelete;
     public Button btnReset;
-    public Button btnGReport;
     public TableView<FishTM> tblFish;
     public TableColumn<?,?> clmFishId;
     public TableColumn<?,?> clmName;
@@ -227,8 +226,6 @@ public class FishPageController{
         tblFish.getSelectionModel().clearSelection();
     }
 
-    public void btnGenerateROnAction(ActionEvent actionEvent) {
-    }
 
     public void clickOnAction(MouseEvent mouseEvent) {
         FishTM selectedItem = tblFish.getSelectionModel().getSelectedItem();

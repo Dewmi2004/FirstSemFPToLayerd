@@ -24,7 +24,6 @@ public class SupplierPageController {
     public Button btnUpdate1;
     public Button btnDelete1;
     public Button btnReset1;
-    public Button btnGenerateR1;
     public TableView<SupplierTM> tblSupplier;
     public TableColumn<?,?> colSupplierId;
     public TableColumn<?,?> colName;
@@ -33,6 +32,7 @@ public class SupplierPageController {
     public TableColumn<?,?> colSupplyType;
     public TableColumn<?,?> colEmail;
     private final SupplierBO supplierBO = (SupplierBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.SUPPLIER);
+    public Button btnEmail1;
 
     public void initialize() throws Exception {
         setCellValueFactory();
@@ -167,7 +167,8 @@ public class SupplierPageController {
         tblSupplier.getSelectionModel().clearSelection();
     }
 
-    public void btnGenerateROnAction(ActionEvent actionEvent) {
+    public void btnEmailOnAction(ActionEvent actionEvent) {
+        org.example.firstsemfptolayerd.Dao.EmailUtil.sendSupplierWelcomeEmail(txtEmail.getText(),txtName.getText());
     }
 
     public void clickOnAction(MouseEvent mouseEvent) {
@@ -184,6 +185,7 @@ public class SupplierPageController {
             btnSave1.setDisable(true);
             btnUpdate1.setDisable(false);
             btnDelete1.setDisable(false);
+            btnEmail1.setDisable(false);
         }
     }
 }

@@ -25,7 +25,6 @@ public class ChemicalPageController {
     public Button btnUpdate;
     public Button btnDelete;
     public Button btnReset;
-    public Button btnGReport;
     public TableView<ChemicalTM> tblChemical;
     public TableColumn<?,?> clmid;
     public TableColumn<?,?> clmtype;
@@ -98,13 +97,13 @@ public class ChemicalPageController {
             txtStoreType.setText(selected.getStoreType());
             txtName.setText(selected.getName());
             txtquantity.setText(selected.getQuantity());
+            // save button disable
             btnSave.setDisable(true);
+
+            // update, delete button enable
             btnUpdate.setDisable(false);
             btnDelete.setDisable(false);
         }
-    }
-
-    public void btnGenerateROnAction(ActionEvent actionEvent) {
     }
 
     public void btnResetOnAction(ActionEvent actionEvent) throws Exception {

@@ -27,7 +27,6 @@ public class PlantPageController {
     public Button btnUpdate1;
     public Button btnDelete1;
     public Button btnReset1;
-    public Button btnGenarateR1;
     public TableView<PlantTM> tblPlant;
     public TableColumn<?,?> colplantId;
     public TableColumn<?,?> colname;
@@ -151,9 +150,6 @@ public class PlantPageController {
         btnUpdate1.setDisable(true);
         btnDelete1.setDisable(true);
         tblPlant.getSelectionModel().clearSelection();
-    }
-
-    public void btnGenarateROnAction(ActionEvent actionEvent) {
     }
 
     public void clickOnAction(MouseEvent mouseEvent) {

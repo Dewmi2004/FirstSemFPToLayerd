@@ -26,7 +26,6 @@ public class CustomerPageController {
     public Button btnUpdate;
     public Button btnDelete;
     public Button btnReset;
-    public Button btnGReport;
     public TableView <CustomerTM>tblCustomer;
     public TableColumn<?,?> clmCusId;
     public TableColumn<?,?> clmName;
@@ -36,6 +35,8 @@ public class CustomerPageController {
     public TableColumn<?,?> clmContact;
     public TableColumn<?,?> clmEmail;
     private final CustomerBO customerBO = (CustomerBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.CUSTOMER);
+    public Button btnEmail;
+
     public void initialize() throws Exception {
         setCellValueFactory();
         setNextId();
@@ -168,7 +169,10 @@ public class CustomerPageController {
         tblCustomer.getSelectionModel().clearSelection();
     }
 
-    public void btnGenarateROnAction(ActionEvent actionEvent) {
+    public void btnEmailOnAction(ActionEvent actionEvent) {
+        String name = txtName.getText();
+        String email = txtEmail.getText();
+        org.example.firstsemfptolayerd.Dao.EmailUtil.sendCustomerWelcomeEmail(email, name);
 
     }
 
@@ -190,6 +194,7 @@ public class CustomerPageController {
             // update, delete button enable
             btnUpdate.setDisable(false);
             btnDelete.setDisable(false);
+            btnEmail.setDisable(false);
         }
     }
     }
