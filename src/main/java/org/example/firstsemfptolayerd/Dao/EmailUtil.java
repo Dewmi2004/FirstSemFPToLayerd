@@ -42,12 +42,12 @@ public class EmailUtil {
         }).start();
     }
 
-    public static void sendSupplierRestockEmail(String toEmail, String itemName, int quantity) {
+    public static void sendSupplierstockEmail(String toEmail, String itemName, int quantity) {
         String subject = "Restock Alert for " + itemName;
         String body = "Dear Supplier,\n\n" +
                 "This is a notification from Aquarium Shop.\n" +
-                "The stock quantity for item: " + itemName + " has reached " + quantity + ".\n" +
-                "Please restock the item as soon as possible.\n\n" +
+                "The stock quantity for item: " + itemName + " has  " + quantity + ".\n" +
+                "Please confirm the item is yours.\n\n" +
                 "Thank you,\nAquarium Management System";
         send(toEmail, subject, body);
     }

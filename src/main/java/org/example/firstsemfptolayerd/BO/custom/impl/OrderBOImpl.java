@@ -2,7 +2,10 @@ package org.example.firstsemfptolayerd.BO.custom.impl;
 
 import org.example.firstsemfptolayerd.BO.custom.OrderBO;
 import org.example.firstsemfptolayerd.Dao.DAOFactory;
+import org.example.firstsemfptolayerd.Dao.custom.CartDao;
+import org.example.firstsemfptolayerd.Dao.custom.FishDao;
 import org.example.firstsemfptolayerd.Dao.custom.OrderDao;
+import org.example.firstsemfptolayerd.Dao.custom.PlantDao;
 import org.example.firstsemfptolayerd.db.DBConnection;
 import org.example.firstsemfptolayerd.entity.Fish;
 import org.example.firstsemfptolayerd.entity.Order;
@@ -15,6 +18,9 @@ import java.util.ArrayList;
 
 public class OrderBOImpl implements OrderBO {
     private final OrderDao orderDAO = (OrderDao) DAOFactory.getInstance().getDAO(DAOFactory.DAOtypes.ORDER);
+    private final FishDao fishDAO = (FishDao) DAOFactory.getInstance().getDAO(DAOFactory.DAOtypes.FISH);
+    private final PlantDao plantDao = (PlantDao) DAOFactory.getInstance().getDAO(DAOFactory.DAOtypes.PLANT);
+    private final CartDao  cartDAO = (CartDao) DAOFactory.getInstance().getDAO(DAOFactory.DAOtypes.CART);
 
     @Override
     public String generateNextOrderId() throws Exception {
@@ -40,14 +46,14 @@ public class OrderBOImpl implements OrderBO {
                     boolean isQuantityUpdated = false;
 
                     if (order.getItemType().equals("Fish Order")) {
-                        isItemOrderSaved =orderDAO.saveFish(order,fish);
+                        isItemOrderSaved =cartDAO.saveFish(order,fish);
 
-                        isQuantityUpdated = orderDAO.updateFish(fish);
+                        isQuantityUpdated = fishDAO.updateFish(fish);
 
                     } else if (order.getItemType().equals("Plant Order")) {
-                        isItemOrderSaved = orderDAO.savePlant(order,plant);
+                        isItemOrderSaved = cartDAO.savePlant(order,plant);
 
-                        isQuantityUpdated = orderDAO.updatePlant(plant);
+                        isQuantityUpdated = plantDao.updatePlant(plant);
                     }
                     con.commit();
                     return true;

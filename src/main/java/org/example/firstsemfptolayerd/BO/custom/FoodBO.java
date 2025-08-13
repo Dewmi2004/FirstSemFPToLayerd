@@ -3,6 +3,7 @@ package org.example.firstsemfptolayerd.BO.custom;
 import org.example.firstsemfptolayerd.BO.SuperBO;
 import org.example.firstsemfptolayerd.model.FoodDTO;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface FoodBO extends SuperBO {
@@ -11,4 +12,6 @@ public interface FoodBO extends SuperBO {
     boolean deleteFood(String id) throws Exception;
     ArrayList<FoodDTO> getAllFoods() throws Exception;
     String getNextFoodId() throws Exception;
+
+    Object getAllFoodIDS() throws SQLException, ClassNotFoundException;
 }

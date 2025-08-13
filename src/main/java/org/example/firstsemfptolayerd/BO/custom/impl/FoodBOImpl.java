@@ -1,12 +1,15 @@
 package org.example.firstsemfptolayerd.BO.custom.impl;
 
+import javafx.collections.FXCollections;
 import org.example.firstsemfptolayerd.BO.custom.FoodBO;
 import org.example.firstsemfptolayerd.Dao.DAOFactory;
 import org.example.firstsemfptolayerd.Dao.custom.FoodDao;
 import org.example.firstsemfptolayerd.entity.Food;
 import org.example.firstsemfptolayerd.model.FoodDTO;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class FoodBOImpl implements FoodBO {
     private final FoodDao foodDao = (FoodDao) DAOFactory.getInstance().getDAO(DAOFactory.DAOtypes.FOOD);
@@ -58,5 +61,11 @@ public class FoodBOImpl implements FoodBO {
     @Override
     public String getNextFoodId() throws Exception {
         return foodDao.getNextId();
+    }
+
+    @Override
+    public Object getAllFoodIDS() throws SQLException, ClassNotFoundException {
+        List<String> ids = foodDao.getAllfoodIds();
+        return FXCollections.observableArrayList(ids);
     }
 }

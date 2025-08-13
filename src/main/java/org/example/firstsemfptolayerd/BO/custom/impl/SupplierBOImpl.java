@@ -6,6 +6,7 @@ import org.example.firstsemfptolayerd.Dao.custom.SupplierDao;
 import org.example.firstsemfptolayerd.entity.Supplier;
 import org.example.firstsemfptolayerd.model.SupplierDTO;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SupplierBOImpl implements SupplierBO {
@@ -61,5 +62,32 @@ public class SupplierBOImpl implements SupplierBO {
     public String getNextSupplierId() throws Exception {
         return supplierDAO.getNextId();
 
+    }
+
+    @Override
+    public Supplier searchSupplierByPhone(String phone) throws SQLException, ClassNotFoundException {
+
+        Supplier supplier = supplierDAO.searchSupplierByPhone(phone);
+        if (supplier != null) {
+            return new Supplier(
+                    supplier.getSupId(),
+                    supplier.getName(),
+                    supplier.getEmail()
+            );
+        }
+        return null;
+    }
+
+    @Override
+    public Supplier getSupplierEmailById(String email) throws SQLException, ClassNotFoundException {
+        Supplier supplier = supplierDAO.getSupplierEmail(email);
+        if (supplier != null) {
+            return new Supplier(
+                    supplier.getSupId(),
+                    supplier.getName(),
+                    supplier.getEmail()
+            );
+        }
+        return null;
     }
 }

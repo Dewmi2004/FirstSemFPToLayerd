@@ -5,8 +5,6 @@ import javafx.collections.ObservableList;
 import org.example.firstsemfptolayerd.Dao.SQLUtil;
 import org.example.firstsemfptolayerd.Dao.custom.PlantDao;
 import org.example.firstsemfptolayerd.entity.Plant;
-import org.example.firstsemfptolayerd.model.CartDTO;
-import org.example.firstsemfptolayerd.model.PlantDTO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -74,10 +72,10 @@ public class PlantDaoImpl implements PlantDao {
         return "PL001";    }
 
     @Override
-    public PlantDTO searchPlantByName(String plantId) throws SQLException, ClassNotFoundException {
+    public Plant searchPlantByName(String plantId) throws SQLException, ClassNotFoundException {
         ResultSet rs = SQLUtil.exicute("SELECT name FROM plant WHERE plant_Id = ?", plantId);
         if (rs.next()) {
-            return new PlantDTO(
+            return new Plant(
                     rs.getString("name")
             );
         }
@@ -94,5 +92,11 @@ public class PlantDaoImpl implements PlantDao {
         return  plantDtoArrayList;
     }
 
-
+    @Override
+    public boolean updatePlant(Plant plant) throws SQLException, ClassNotFoundException {
+        return SQLUtil.executeUpdate(
+                "UPDATE plant SET quantity = quantity - ? WHERE plant_Id = ?",
+                plant.getQuantity(), plant.getPlantId()
+        );
+    }
 }

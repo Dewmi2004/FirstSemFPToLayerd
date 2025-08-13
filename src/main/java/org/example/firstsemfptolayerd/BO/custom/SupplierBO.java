@@ -1,8 +1,10 @@
 package org.example.firstsemfptolayerd.BO.custom;
 
 import org.example.firstsemfptolayerd.BO.SuperBO;
+import org.example.firstsemfptolayerd.entity.Supplier;
 import org.example.firstsemfptolayerd.model.SupplierDTO;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface SupplierBO extends SuperBO {
@@ -11,4 +13,8 @@ public interface SupplierBO extends SuperBO {
     boolean deleteSupplier(String id) throws Exception;
     ArrayList<SupplierDTO> getAllSuppliers() throws Exception;
     String getNextSupplierId() throws Exception;
+
+    Supplier searchSupplierByPhone(String text) throws SQLException, ClassNotFoundException;
+
+    Supplier getSupplierEmailById(String text) throws SQLException, ClassNotFoundException;
 }

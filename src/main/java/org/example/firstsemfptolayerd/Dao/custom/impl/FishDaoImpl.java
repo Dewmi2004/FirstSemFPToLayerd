@@ -103,4 +103,13 @@ public class FishDaoImpl implements FishDao {
         }
         return null;
     }
+
+    @Override
+    public boolean updateFish(Fish fish) throws SQLException, ClassNotFoundException {
+        return SQLUtil.executeUpdate(
+                "UPDATE fish SET quantity = quantity - ? WHERE fish_Id = ?",
+                fish.getQuantity(), fish.getFishId()
+
+        );
+    }
 }

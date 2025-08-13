@@ -9,6 +9,7 @@ import javafx.scene.input.KeyEvent;
 import org.example.firstsemfptolayerd.BO.custom.PlantBO;
 import org.example.firstsemfptolayerd.BO.custom.PlantCartBO;
 import org.example.firstsemfptolayerd.BO.custom.impl.BOFactory;
+import org.example.firstsemfptolayerd.entity.Plant;
 import org.example.firstsemfptolayerd.model.CartDTO;
 import org.example.firstsemfptolayerd.model.PlantDTO;
 
@@ -49,7 +50,7 @@ public class PlantCartController {
         }
 
         try {
-            PlantDTO plant = plantBO.searchPlantByName(plantId);
+            Plant plant = plantBO.searchPlantByName(plantId);
             CartDTO cart = plantCartBO.searchPlantUnitprice(plantId);
 
             OrderPageController.plantId = plantId;

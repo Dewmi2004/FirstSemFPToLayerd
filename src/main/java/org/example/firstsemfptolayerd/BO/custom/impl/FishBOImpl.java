@@ -70,7 +70,8 @@ public class FishBOImpl implements FishBO {
     @Override
     public ObservableList<String> getAllFishIDS() throws SQLException, ClassNotFoundException {
         List<String> ids = fishDao.getAllfishIds();
-        return FXCollections.observableArrayList(ids);    }
+        return FXCollections.observableArrayList(ids);
+    }
 
     @Override
     public FishDTO searchFishByName(String fishId) throws SQLException, ClassNotFoundException {

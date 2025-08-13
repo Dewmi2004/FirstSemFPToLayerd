@@ -23,4 +23,8 @@ public class Plant {
         this.size = o3.toString();
         this.quantity = s;
     }
+
+    public Plant(String name) {
+        this.plantId = name;
+    }
 }

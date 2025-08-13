@@ -13,4 +13,14 @@ public class Supplier {
     private String companyAddress;
     private String supplyType;
     private String email;
+
+    public Supplier(String supId, String name, String email) {
+        this.supId = supId;
+        this.name = name;
+        this.email = email;
+    }
+
+    public Supplier(String email) {
+        this.email = email;
+    }
 }

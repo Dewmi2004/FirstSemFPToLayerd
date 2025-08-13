@@ -2,6 +2,7 @@ package org.example.firstsemfptolayerd.Dao.custom.impl;
 
 import org.example.firstsemfptolayerd.Dao.SQLUtil;
 import org.example.firstsemfptolayerd.Dao.custom.SupplierDao;
+import org.example.firstsemfptolayerd.entity.Customer;
 import org.example.firstsemfptolayerd.entity.Supplier;
 
 import java.sql.ResultSet;
@@ -67,5 +68,29 @@ public class SupplierDaoImpl implements SupplierDao {
             return String.format("S%03d", num);
         }
         return "S001";
+    }
+
+    @Override
+    public Supplier searchSupplierByPhone(String phone) throws SQLException, ClassNotFoundException {
+        ResultSet rs = SQLUtil.exicute("SELECT sup_Id, name, Email FROM supplier WHERE contact = ?", phone);
+        if (rs.next()) {
+            return new Supplier(
+                    rs.getString("sup_Id"),
+                    rs.getString("name"),
+                    rs.getString("Email")
+            );
+        }
+        return null;
+    }
+
+    @Override
+    public Supplier getSupplierEmail(String id) throws SQLException, ClassNotFoundException {
+        ResultSet rs = SQLUtil.exicute("SELECT Email FROM supplier WHERE sup_Id = ?", id);
+        if (rs.next()) {
+            return new Supplier(
+                    rs.getString("Email")
+            );
+        }
+        return null;
     }
 }

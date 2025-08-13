@@ -52,36 +52,5 @@ public class OrderDaoImpl implements OrderDao {
 
     }
 
-    @Override
-    public boolean saveFish(Order order, Fish fish) throws SQLException, ClassNotFoundException {
-       return SQLUtil.executeUpdate(
-                "INSERT INTO order_fish(order_Id, fish_Id) VALUES (?, ?)",
-                order.getOrderId(),fish.getFishId()
-        );
-    }
 
-    @Override
-    public boolean updateFish(Fish fish) throws SQLException, ClassNotFoundException {
-        return SQLUtil.executeUpdate(
-                "UPDATE fish SET quantity = quantity - ? WHERE fish_Id = ?",
-                fish.getQuantity(), fish.getFishId()
-
-        );
-    }
-
-    @Override
-    public boolean savePlant(Order order, Plant plant) throws SQLException, ClassNotFoundException {
-        return SQLUtil.executeUpdate(
-                "INSERT INTO order_plant(order_Id, plant_Id) VALUES (?, ?)",
-                order.getOrderId(),plant.getPlantId()
-        );
-    }
-
-    @Override
-    public boolean updatePlant(Plant plant) throws SQLException, ClassNotFoundException {
-        return SQLUtil.executeUpdate(
-                "UPDATE plant SET quantity = quantity - ? WHERE plant_Id = ?",
-                plant.getQuantity(), plant.getPlantId()
-        );
-    }
 }

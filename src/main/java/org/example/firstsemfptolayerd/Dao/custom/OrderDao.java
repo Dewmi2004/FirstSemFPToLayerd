@@ -16,11 +16,6 @@ public interface OrderDao extends SuperDao {
 
     boolean SavePayment(Order order) throws SQLException, ClassNotFoundException;
 
-    boolean saveFish(Order order, Fish fish) throws SQLException, ClassNotFoundException;
 
-    boolean updateFish(Fish fish) throws SQLException, ClassNotFoundException;
 
-    boolean savePlant(Order order, Plant plant) throws SQLException, ClassNotFoundException;
-
-    boolean updatePlant(Plant plant) throws SQLException, ClassNotFoundException;
 }

@@ -5,9 +5,7 @@ import javafx.collections.ObservableList;
 import org.example.firstsemfptolayerd.BO.custom.PlantBO;
 import org.example.firstsemfptolayerd.Dao.DAOFactory;
 import org.example.firstsemfptolayerd.Dao.custom.PlantDao;
-import org.example.firstsemfptolayerd.entity.Customer;
 import org.example.firstsemfptolayerd.entity.Plant;
-import org.example.firstsemfptolayerd.model.CustomerDTO;
 import org.example.firstsemfptolayerd.model.PlantDTO;
 
 import java.sql.SQLException;
@@ -68,10 +66,10 @@ public class PlantBOImpl implements PlantBO {
     }
 
     @Override
-    public PlantDTO searchPlantByName(String plantId) throws SQLException, ClassNotFoundException {
-        PlantDTO plant = plantDAO.searchPlantByName(plantId);
+    public Plant searchPlantByName(String plantId) throws SQLException, ClassNotFoundException {
+        Plant plant = plantDAO.searchPlantByName(plantId);
         if (plant != null) {
-            return new PlantDTO(
+            return new Plant(
                     plant.getName()
             );
         }
