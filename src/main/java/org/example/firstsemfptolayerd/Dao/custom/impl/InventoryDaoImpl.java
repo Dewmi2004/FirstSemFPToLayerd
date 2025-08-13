@@ -27,5 +27,13 @@ public class InventoryDaoImpl implements InventoryDao {
         }
     }
 
+    @Override
+    public boolean saveInventory(Inventory inventory) throws SQLException, ClassNotFoundException {
+        return SQLUtil.executeUpdate(
+                "INSERT INTO inventory (inventory_Id, sup_Id, date) VALUES (?, ?, ?)",
+                inventory.getInventoryId(), inventory.getSupId(), inventory.getDate()
+        );
+    }
+
 
 }

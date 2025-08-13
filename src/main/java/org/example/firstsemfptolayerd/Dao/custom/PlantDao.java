@@ -12,4 +12,6 @@ public interface PlantDao extends CrudDao<Plant> {
     List<String> getAllPlantIds() throws SQLException, ClassNotFoundException;
 
     boolean updatePlant(Plant plant) throws SQLException, ClassNotFoundException;
+
+    boolean updateplantQntyUp(Integer plantquantity,String itemId) throws SQLException, ClassNotFoundException;
 }

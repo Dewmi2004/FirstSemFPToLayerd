@@ -8,4 +8,6 @@ import java.sql.SQLException;
 
 public interface ChemicalDao extends CrudDao<Chemical> {
     ObservableList<String> getChemicalIds() throws SQLException, ClassNotFoundException;
+
+    boolean updateChemicalQntyUp(String chemicalquantity, String itemId) throws SQLException, ClassNotFoundException;
 }

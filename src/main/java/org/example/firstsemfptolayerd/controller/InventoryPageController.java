@@ -11,16 +11,16 @@ import org.example.firstsemfptolayerd.AppInitializer;
 import org.example.firstsemfptolayerd.BO.custom.InventoryBO;
 import org.example.firstsemfptolayerd.BO.custom.SupplierBO;
 import org.example.firstsemfptolayerd.BO.custom.impl.BOFactory;
-import org.example.firstsemfptolayerd.BO.custom.impl.InventoryBOImpl;
 import org.example.firstsemfptolayerd.Dao.EmailUtil;
-import org.example.firstsemfptolayerd.entity.Inventory;
-import org.example.firstsemfptolayerd.entity.Supplier;
+import org.example.firstsemfptolayerd.entity.*;
 import org.example.firstsemfptolayerd.model.*;
 import org.example.firstsemfptolayerd.view.tdm.InventoryTM;
 
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class InventoryPageController {
     public Label lblInventoryId;
@@ -33,7 +33,7 @@ public class InventoryPageController {
     public Button btnSearchItem;
     public AnchorPane itemUiLoadPane;
     public Button btnAddToCart;
-    public TableView<Object> tblCart;
+    public TableView<InventoryTM> tblCart;
     public TableColumn<?,?> colItemId;
     public TableColumn<?,?> colQty;
     public TableColumn<?,?> colUnitPrice;
@@ -43,7 +43,7 @@ public class InventoryPageController {
 
     public static int fishQty = 0, plantQty = 0, chemicalQty = 0, foodQty = 0;
 
-    private final ObservableList<Object> cartList = FXCollections.observableArrayList();
+    private final ObservableList<InventoryTM> cartList = FXCollections.observableArrayList();
     private final InventoryBO inventoryBO = (InventoryBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.INVENTORY);
     private final SupplierBO supplierBO = (SupplierBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.SUPPLIER);
 
@@ -205,14 +205,15 @@ public class InventoryPageController {
                     cmbItemId.getValue()
             );
 
-            PlantDTO plant = new PlantDTO(); plant.setQuantity(String.valueOf(plantQty));
-            FishDTO fish = new FishDTO(); fish.setQuantity(String.valueOf(fishQty));
-            ChemicalDTO chemical = new ChemicalDTO(); chemical.setQuantity(String.valueOf(chemicalQty));
-            FoodDTO food = new FoodDTO(); food.setQuantity(String.valueOf(foodQty));
-
+            Plant plant = new Plant(); plant.setQuantity(String.valueOf(plantQty));
+            Fish fish = new Fish(); fish.setQuantity(String.valueOf(fishQty));
+            Chemical chemical = new Chemical(); chemical.setQuantity(String.valueOf(chemicalQty));
+            Food food = new Food(); food.setQuantity(String.valueOf(foodQty));
+            Map<String, Integer> updatedQuantities = new HashMap<>();
             boolean isSaved = inventoryBO.placeInventoryOrder(
-                    inventory, new ArrayList<>(cartList), fish, plant, chemical, food
+                    inventory, new ArrayList<>(cartList), updatedQuantities, fish, plant, chemical, food
             );
+
 
             if (isSaved) {
                 String email = String.valueOf(supplierBO.getSupplierEmailById(SupplierId.getText()));

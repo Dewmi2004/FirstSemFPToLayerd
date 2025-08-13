@@ -13,4 +13,6 @@ import java.util.ArrayList;
 
 public interface InventoryDao extends SuperDao {
     String generateNextInventoryId() throws SQLException, ClassNotFoundException;
+
+    boolean saveInventory(Inventory inventory) throws SQLException, ClassNotFoundException;
 }

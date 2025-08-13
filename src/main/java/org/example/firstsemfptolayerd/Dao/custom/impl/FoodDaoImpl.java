@@ -76,4 +76,10 @@ public class FoodDaoImpl implements FoodDao {
         }
         return  foodDtoArrayList;
     }
+
+    @Override
+    public boolean updateFoodQntyUp(String foodquantity, String itemId) throws SQLException, ClassNotFoundException {
+      return  SQLUtil.executeUpdate("UPDATE food SET quantity = quantity + ? WHERE food_Id=?",foodquantity, itemId);
+
+    }
 }

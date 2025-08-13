@@ -75,6 +75,12 @@ public class ChemicalDaoImpl implements ChemicalDao {
         }
         return list;
     }
+
+    @Override
+    public boolean updateChemicalQntyUp(String chemicalquantity, String itemId) throws SQLException, ClassNotFoundException {
+        return  SQLUtil.executeUpdate("UPDATE chemical SET quantity = quantity + ? WHERE chemical_Id=?",chemicalquantity, itemId);
+
+    }
 }
 
 

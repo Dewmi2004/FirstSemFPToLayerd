@@ -20,10 +20,11 @@ public class Inventory {
     private String foodId;
     private String chemicalId;
     private String plantId;
+    private String itemType;
     public Inventory(String inventoryId, String date, String supId, String itemId) {
         this.inventoryId = inventoryId;
         this.date = date;
         this.supId = supId;
-        this.itemId = itemId;
+        this.itemType = itemId;
     }
 }

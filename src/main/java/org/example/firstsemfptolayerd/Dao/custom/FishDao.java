@@ -13,4 +13,6 @@ public interface FishDao extends CrudDao<Fish> {
     FishDTO searchfishByName(String fishId) throws SQLException, ClassNotFoundException;
 
     boolean updateFish(Fish fish) throws SQLException, ClassNotFoundException;
+
+    boolean updateFishQntyUp(String fishquantity, String itemId) throws SQLException, ClassNotFoundException;
 }
