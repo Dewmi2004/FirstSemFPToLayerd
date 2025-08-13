@@ -13,7 +13,6 @@ import org.example.firstsemfptolayerd.BO.custom.SupplierBO;
 import org.example.firstsemfptolayerd.BO.custom.impl.BOFactory;
 import org.example.firstsemfptolayerd.Dao.EmailUtil;
 import org.example.firstsemfptolayerd.entity.*;
-import org.example.firstsemfptolayerd.model.*;
 import org.example.firstsemfptolayerd.view.tdm.InventoryTM;
 
 import java.sql.Date;
@@ -42,7 +41,6 @@ public class InventoryPageController {
     public Button btnPlaceOrder;
 
     public static int fishQty = 0, plantQty = 0, chemicalQty = 0, foodQty = 0;
-
     private final ObservableList<InventoryTM> cartList = FXCollections.observableArrayList();
     private final InventoryBO inventoryBO = (InventoryBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.INVENTORY);
     private final SupplierBO supplierBO = (SupplierBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.SUPPLIER);
@@ -140,7 +138,7 @@ public class InventoryPageController {
             return;
         }
 
-        String itemId = null, qty = null, unitPrice = null;
+        String itemIdselect = null , qty = null, unitPrice = null;
         try {
             switch (selectedItem) {
                 case "Plant" -> {
@@ -148,7 +146,7 @@ public class InventoryPageController {
                         showAlert(Alert.AlertType.ERROR, "Plant UI not loaded.");
                         return;
                     }
-                    itemId = plantDetailPageController.getSelectedPlantId();
+                    itemIdselect = plantDetailPageController.getSelectedPlantId();
                     qty = plantDetailPageController.getQuantity();
                     unitPrice = plantDetailPageController.getUnitPrice();
                 }
@@ -157,7 +155,7 @@ public class InventoryPageController {
                         showAlert(Alert.AlertType.ERROR, "Fish UI not loaded.");
                         return;
                     }
-                    itemId = fishDetailPageController.getSelectedFishId();
+                    itemIdselect = fishDetailPageController.getSelectedFishId();
                     qty = fishDetailPageController.getQuantity();
                     unitPrice = fishDetailPageController.getUnitPrice();
                 }
@@ -166,7 +164,7 @@ public class InventoryPageController {
                         showAlert(Alert.AlertType.ERROR, "Chemical UI not loaded.");
                         return;
                     }
-                    itemId = chemDetailPageController.getSelectedChemicalId();
+                    itemIdselect = chemDetailPageController.getSelectedChemicalId();
                     qty = chemDetailPageController.getQuantity();
                     unitPrice = chemDetailPageController.getUnitPrice();
                 }
@@ -175,14 +173,14 @@ public class InventoryPageController {
                         showAlert(Alert.AlertType.ERROR, "Food UI not loaded.");
                         return;
                     }
-                    itemId = foodDetailPageController.getSelectedFoodId();
+                    itemIdselect = foodDetailPageController.getSelectedFoodId();
                     qty = foodDetailPageController.getQuantity();
                     unitPrice = foodDetailPageController.getUnitPrice();
                 }
             }
 
             Button btn = new Button("Remove");
-            InventoryTM tm = new InventoryTM(lblInventoryId.getText(), itemId, qty, unitPrice, btn);
+            InventoryTM tm = new InventoryTM(lblInventoryId.getText(), itemIdselect, qty, unitPrice, btn);
             btn.setOnAction(e -> cartList.remove(tm));
             cartList.add(tm);
 

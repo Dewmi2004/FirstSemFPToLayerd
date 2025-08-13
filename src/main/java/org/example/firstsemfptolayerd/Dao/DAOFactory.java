@@ -42,8 +42,6 @@ public class DAOFactory {
               return new FoodDaoImpl();
               case ORDER:
               return new OrderDaoImpl();
-              case PAYMENT:
-              return new PaymentDaoImpl();
               case CART:
               return new CartDaoImpl();
             case INVENTORY:

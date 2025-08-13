@@ -9,6 +9,7 @@ import javafx.scene.input.KeyEvent;
 import org.example.firstsemfptolayerd.BO.custom.FishBO;
 import org.example.firstsemfptolayerd.BO.custom.FishCartBO;
 import org.example.firstsemfptolayerd.BO.custom.impl.BOFactory;
+import org.example.firstsemfptolayerd.entity.Fish;
 import org.example.firstsemfptolayerd.model.CartDTO;
 import org.example.firstsemfptolayerd.model.FishDTO;
 
@@ -46,7 +47,7 @@ private final FishBO fishBO = (FishBO) BOFactory.getInstance().getBO(BOFactory.B
         }
 
         try {
-            FishDTO fish = fishBO.searchFishByName(fishId);
+            Fish fish = fishBO.searchFishByName(fishId);
             CartDTO cart = fishCartBO.searchFishUnitPrice(fishId);
 
             OrderPageController.fishId = fishId;

@@ -94,10 +94,10 @@ public class FishDaoImpl implements FishDao {
     }
 
     @Override
-    public FishDTO searchfishByName(String fishId) throws SQLException, ClassNotFoundException {
+    public Fish searchfishByName(String fishId) throws SQLException, ClassNotFoundException {
         ResultSet rs = SQLUtil.exicute("SELECT name FROM fish WHERE fish_Id = ?", fishId);
         if (rs.next()) {
-            return new FishDTO(
+            return new Fish(
                     rs.getString("name")
             );
         }
@@ -114,8 +114,9 @@ public class FishDaoImpl implements FishDao {
     }
 
     @Override
-    public boolean updateFishQntyUp(String fishquantity, String itemId) throws SQLException, ClassNotFoundException {
-        return SQLUtil.executeUpdate("UPDATE fish SET quantity = quantity + ? WHERE fish_Id=?",fishquantity, itemId);
-
+    public boolean updateFishQntyUp(int fishquantity, String itemId) throws SQLException, ClassNotFoundException {
+        return SQLUtil.executeUpdate(
+                "UPDATE fish SET quantity = quantity + ? WHERE fish_Id=?", fishquantity, itemId
+        );
     }
 }

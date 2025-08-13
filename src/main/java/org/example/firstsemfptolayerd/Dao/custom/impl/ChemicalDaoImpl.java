@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import org.example.firstsemfptolayerd.Dao.SQLUtil;
 import org.example.firstsemfptolayerd.Dao.custom.ChemicalDao;
 import org.example.firstsemfptolayerd.entity.Chemical;
+import org.example.firstsemfptolayerd.view.tdm.InventoryTM;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -77,10 +78,12 @@ public class ChemicalDaoImpl implements ChemicalDao {
     }
 
     @Override
-    public boolean updateChemicalQntyUp(String chemicalquantity, String itemId) throws SQLException, ClassNotFoundException {
-        return  SQLUtil.executeUpdate("UPDATE chemical SET quantity = quantity + ? WHERE chemical_Id=?",chemicalquantity, itemId);
-
+    public boolean updateChemicalQntyUp(Integer chemicalquantity, String itemId) throws SQLException, ClassNotFoundException {
+        return SQLUtil.executeUpdate(
+                "UPDATE chemical SET quantity = quantity + ? WHERE chemical_Id=?", chemicalquantity, itemId
+        );
     }
+
 }
 
 

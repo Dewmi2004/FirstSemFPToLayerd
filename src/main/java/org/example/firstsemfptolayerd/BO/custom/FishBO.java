@@ -2,6 +2,7 @@ package org.example.firstsemfptolayerd.BO.custom;
 
 import javafx.collections.ObservableList;
 import org.example.firstsemfptolayerd.BO.SuperBO;
+import org.example.firstsemfptolayerd.entity.Fish;
 import org.example.firstsemfptolayerd.model.FishDTO;
 
 import java.sql.SQLException;
@@ -16,5 +17,5 @@ public interface FishBO extends SuperBO {
 
     ObservableList<String> getAllFishIDS() throws SQLException, ClassNotFoundException;
 
-    FishDTO searchFishByName(String fishId) throws SQLException, ClassNotFoundException;
+    Fish searchFishByName(String fishId) throws SQLException, ClassNotFoundException;
 }

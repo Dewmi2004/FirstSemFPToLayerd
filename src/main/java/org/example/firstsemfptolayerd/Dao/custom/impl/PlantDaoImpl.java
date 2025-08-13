@@ -102,6 +102,8 @@ public class PlantDaoImpl implements PlantDao {
 
     @Override
     public boolean updateplantQntyUp(Integer plantquantity,String itemId) throws SQLException, ClassNotFoundException {
-        return SQLUtil.executeUpdate("UPDATE plant SET quantity = quantity + ? WHERE plant_Id=?",plantquantity, itemId);
+        return SQLUtil.executeUpdate(
+                "UPDATE plant SET quantity = quantity + ? WHERE plant_Id=?", plantquantity, itemId
+        );
     }
 }

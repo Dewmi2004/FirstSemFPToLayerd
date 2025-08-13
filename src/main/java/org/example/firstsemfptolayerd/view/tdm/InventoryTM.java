@@ -23,7 +23,7 @@ public class InventoryTM {
 
     public InventoryTM(String inventoryId, String itemId, String qty, String unitPrice, Button btn) {
         this.inventoryId = inventoryId;
-        this.supId = itemId;
+        this.itemId = itemId;
         this.quantity = qty;
         this.unitPrice = unitPrice;
         this.btn = btn;

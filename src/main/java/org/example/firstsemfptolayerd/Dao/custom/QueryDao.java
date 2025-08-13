@@ -9,10 +9,10 @@ import java.sql.SQLException;
 public interface QueryDao extends SuperDao {
     boolean savePlantDetail(String plantId, Integer quantity, String priceStr, String inventoryId) throws SQLException, ClassNotFoundException;
 
-    boolean saveFishDetails(String itemId, String fishquantity, String priceStr, String inventoryId) throws SQLException, ClassNotFoundException;
+    boolean saveFishDetails(String itemId, Integer fishquantity, String priceStr, String inventoryId) throws SQLException, ClassNotFoundException;
 
-    boolean saveFoodDetails(String itemId, String foodquantity, String priceStr, String inventoryId) throws SQLException, ClassNotFoundException;
+    boolean saveFoodDetails(String itemId, Integer foodquantity, String priceStr, String inventoryId) throws SQLException, ClassNotFoundException;
 
 
-    boolean saveChemicalDetails(String itemId, String chemicalquantity, String priceStr, String inventoryId) throws SQLException, ClassNotFoundException;
+    boolean saveChemicalDetails(String itemId, Integer chemicalquantity, String priceStr, String inventoryId) throws SQLException, ClassNotFoundException;
 }

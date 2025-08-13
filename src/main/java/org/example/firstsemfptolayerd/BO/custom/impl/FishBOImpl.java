@@ -7,7 +7,6 @@ import org.example.firstsemfptolayerd.Dao.DAOFactory;
 import org.example.firstsemfptolayerd.Dao.custom.FishDao;
 import org.example.firstsemfptolayerd.entity.Fish;
 import org.example.firstsemfptolayerd.model.FishDTO;
-import org.example.firstsemfptolayerd.model.PlantDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -74,10 +73,10 @@ public class FishBOImpl implements FishBO {
     }
 
     @Override
-    public FishDTO searchFishByName(String fishId) throws SQLException, ClassNotFoundException {
-        FishDTO fish = fishDao.searchfishByName(fishId);
+    public Fish searchFishByName(String fishId) throws SQLException, ClassNotFoundException {
+        Fish fish = fishDao.searchfishByName(fishId);
         if (fish != null) {
-            return new FishDTO(
+            return new Fish(
                     fish.getName()
             );
         }

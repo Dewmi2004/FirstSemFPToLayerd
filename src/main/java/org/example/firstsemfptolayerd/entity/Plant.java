@@ -25,6 +25,6 @@ public class Plant {
     }
 
     public Plant(String name) {
-        this.plantId = name;
+        this.name = name;
     }
 }

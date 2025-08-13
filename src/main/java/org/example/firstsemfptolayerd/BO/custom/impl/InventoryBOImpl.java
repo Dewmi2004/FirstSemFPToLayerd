@@ -41,23 +41,23 @@ public class InventoryBOImpl implements InventoryBO {
                 String itemId = item.getItemId();
                 String priceStr = item.getUnitPrice();
                 String inventoryId = inventory.getInventoryId();
-                Integer plantquantity = Integer.valueOf(plant.getQuantity());
-                String chemicalquantity = chemical.getQuantity();
-                String foodquantity = food.getQuantity();
-                String fishquantity = fish.getQuantity();
+                String plantquantity = (item.getQuantity());
+                String chemicalquantity = item.getQuantity();
+                String foodquantity = item.getQuantity();
+                String fishquantity = item.getQuantity();
                 boolean isSaved;
                 boolean isUpdated;
 
                 switch (inventory.getItemType()) {
                     case "Plant":
-                        isSaved = queryDAO.savePlantDetail(itemId, plantquantity, priceStr, inventoryId);
+                        isSaved = queryDAO.savePlantDetail(itemId, Integer.valueOf(plantquantity), priceStr, inventoryId);
                         if (!isSaved) {
                             con.rollback();
                             return false;
                         }
 
-                        isUpdated = plantDao.updateplantQntyUp(plantquantity,itemId);
-
+                        isUpdated = plantDao.updateplantQntyUp(Integer.valueOf(plantquantity),itemId);
+                        System.out.println(plantquantity);
                         if (!isUpdated) {
                             con.rollback();
                             return false;
@@ -66,13 +66,13 @@ public class InventoryBOImpl implements InventoryBO {
                         break;
 
                     case "Fish":
-                        isSaved =queryDAO.saveFishDetails(itemId,fishquantity,priceStr,inventoryId);
+                        isSaved =queryDAO.saveFishDetails(itemId, Integer.valueOf(fishquantity),priceStr,inventoryId);
 
                         if (!isSaved) {
                             con.rollback();
                             return false;
                         }
-                        isUpdated = fishDao.updateFishQntyUp(fishquantity,itemId);
+                        isUpdated = fishDao.updateFishQntyUp(Integer.parseInt(fishquantity),itemId);
 
                         if (!isUpdated) {
                             con.rollback();
@@ -82,15 +82,14 @@ public class InventoryBOImpl implements InventoryBO {
                         break;
 
                     case "Food":
-                        System.out.println(itemId+" "+ foodquantity+" "+ priceStr+" "+ inventoryId);
-                        isSaved = queryDAO.saveFoodDetails(itemId,foodquantity,priceStr,inventoryId);
+                        isSaved = queryDAO.saveFoodDetails(itemId, Integer.valueOf(foodquantity),priceStr,inventoryId);
 
 
                         if (!isSaved) {
                             con.rollback();
                             return false;
                         }
-                        isUpdated = foodDao.updateFoodQntyUp(foodquantity,itemId);
+                        isUpdated = foodDao.updateFoodQntyUp(Integer.valueOf(foodquantity),itemId);
 
                         if (!isUpdated) {
                             con.rollback();
@@ -100,13 +99,13 @@ public class InventoryBOImpl implements InventoryBO {
                         break;
 
                     case "Chemical":
-                        isSaved = queryDAO.saveChemicalDetails(itemId,chemicalquantity,priceStr,inventoryId);
+                        isSaved = queryDAO.saveChemicalDetails(itemId, Integer.valueOf(chemicalquantity),priceStr,inventoryId);
 
                         if (!isSaved) {
                             con.rollback();
                             return false;
                         }
-                        isUpdated = chemicalDao.updateChemicalQntyUp(chemicalquantity,itemId);
+                        isUpdated = chemicalDao.updateChemicalQntyUp(Integer.valueOf(chemicalquantity),itemId);
 
                         if (!isUpdated) {
                             con.rollback();

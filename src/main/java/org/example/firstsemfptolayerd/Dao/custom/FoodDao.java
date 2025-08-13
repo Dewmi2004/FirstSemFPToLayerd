@@ -10,5 +10,5 @@ import java.util.List;
 public interface FoodDao extends CrudDao<Food> {
     List<String> getAllfoodIds() throws SQLException, ClassNotFoundException;
 
-    boolean updateFoodQntyUp(String foodquantity, String itemId) throws SQLException, ClassNotFoundException;
+    boolean updateFoodQntyUp(Integer foodquantity, String itemId) throws SQLException, ClassNotFoundException;
 }

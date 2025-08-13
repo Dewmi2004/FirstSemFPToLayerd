@@ -17,4 +17,8 @@ public class Fish {
     private String country;
     private String colour;
     private String quantity;
+
+    public Fish(String name) {
+        this.name = name;
+    }
 }

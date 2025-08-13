@@ -59,6 +59,7 @@ public class PlantCartController {
 
             if (plant != null) {
                 lblPlantName.setText(plant.getName());
+                System.out.println(plant.getName());
                 foundSomething = true;
             } else {
                 lblPlantName.setText("N/A");
