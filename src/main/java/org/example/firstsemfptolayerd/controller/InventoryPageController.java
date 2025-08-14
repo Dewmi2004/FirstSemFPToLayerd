@@ -208,24 +208,40 @@ public class InventoryPageController {
             Chemical chemical = new Chemical(); chemical.setQuantity(String.valueOf(chemicalQty));
             Food food = new Food(); food.setQuantity(String.valueOf(foodQty));
             Map<String, Integer> updatedQuantities = new HashMap<>();
+
             boolean isSaved = inventoryBO.placeInventoryOrder(
                     inventory, new ArrayList<>(cartList), updatedQuantities, fish, plant, chemical, food
             );
 
 
             if (isSaved) {
-                String email = String.valueOf(supplierBO.getSupplierEmailById(SupplierId.getText()));
-                if (email != null && !email.isEmpty()) {
-                    EmailUtil.sendSupplierstockEmail(email, lblSupplierName.getText(), 0);
+                for (Map.Entry<String, Integer> entry : updatedQuantities.entrySet()) {
+                    String itemId = entry.getKey();
+                    int totalQty = entry.getValue();
+                    Supplier supplier = supplierBO.getSupplierEmailById(SupplierId.getText());
+                    String email = supplier != null ? supplier.getEmail() : null;
+                    String name = lblSupplierName.getText();
+
+                    if (email != null && !email.isEmpty()) {
+                        EmailUtil.sendSupplierstockEmail(email, itemId, totalQty);
+                    }
+
+
+                    showAlert(Alert.AlertType.INFORMATION, "Inventory placed successfully!");
+                    clearFields();
+                    inventoryBO.generateNextInventoryId();
                 }
+            }
+
                 showAlert(Alert.AlertType.INFORMATION, "Inventory placed successfully!");
                 clearFields();
                 lblInventoryId.setText(inventoryBO.generateNextInventoryId());
-            }
-
-        } catch (Exception e) {
-            showAlert(Alert.AlertType.ERROR, "Error: " + e.getMessage());
+            } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        } catch (ClassNotFoundException ex) {
+            throw new RuntimeException(ex);
         }
+
     }
 
     private void clearFields() {

@@ -38,7 +38,7 @@ public class FoodDetailController {
     }
 
     public String getQuantity() {
-        return txtUnitPrice.getText();
+        return txtfoodQty.getText();
     }
 
     public String getUnitPrice() {

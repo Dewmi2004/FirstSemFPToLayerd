@@ -82,15 +82,13 @@ public class SupplierDaoImpl implements SupplierDao {
         }
         return null;
     }
-
     @Override
     public Supplier getSupplierEmail(String id) throws SQLException, ClassNotFoundException {
         ResultSet rs = SQLUtil.exicute("SELECT Email FROM supplier WHERE sup_Id = ?", id);
         if (rs.next()) {
-            return new Supplier(
-                    rs.getString("Email")
-            );
+            return new Supplier(rs.getString("Email"));
         }
         return null;
     }
+
 }

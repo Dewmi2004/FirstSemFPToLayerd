@@ -7,7 +7,7 @@ import lombok.*;
 @ToString
 @Setter
 @Getter
-public class Plant {
+public class  Plant {
     private String plantId;
     private String name;
     private String waterType;

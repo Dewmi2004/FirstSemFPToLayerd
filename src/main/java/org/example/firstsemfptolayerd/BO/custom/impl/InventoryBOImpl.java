@@ -57,7 +57,7 @@ public class InventoryBOImpl implements InventoryBO {
                         }
 
                         isUpdated = plantDao.updateplantQntyUp(Integer.valueOf(plantquantity),itemId);
-                        System.out.println(plantquantity);
+
                         if (!isUpdated) {
                             con.rollback();
                             return false;
@@ -83,7 +83,6 @@ public class InventoryBOImpl implements InventoryBO {
 
                     case "Food":
                         isSaved = queryDAO.saveFoodDetails(itemId, Integer.valueOf(foodquantity),priceStr,inventoryId);
-
 
                         if (!isSaved) {
                             con.rollback();

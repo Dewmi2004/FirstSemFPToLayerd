@@ -26,7 +26,7 @@ public class FishDetailController {
     }
 
     public String getQuantity() {
-        return txtUnitPrice.getText();
+        return txtFishQty.getText();
     }
 
     public String getUnitPrice() {

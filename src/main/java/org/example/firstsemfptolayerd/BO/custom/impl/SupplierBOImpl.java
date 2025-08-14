@@ -79,15 +79,10 @@ public class SupplierBOImpl implements SupplierBO {
     }
 
     @Override
-    public Supplier getSupplierEmailById(String email) throws SQLException, ClassNotFoundException {
-        Supplier supplier = supplierDAO.getSupplierEmail(email);
-        if (supplier != null) {
-            return new Supplier(
-                    supplier.getSupId(),
-                    supplier.getName(),
-                    supplier.getEmail()
-            );
-        }
-        return null;
+    public Supplier getSupplierEmailById(String supId) throws SQLException, ClassNotFoundException {
+        return supplierDAO.getSupplierEmail(supId);
+
     }
+
+
 }
