@@ -16,9 +16,9 @@
 
     <children>
 
-        <ImageView fitHeight="400.0" fitWidth="1000.0" preserveRatio="false" opacity="0.3">
+        <ImageView fitHeight="600.0" fitWidth="1000.0" preserveRatio="false" opacity="0.3">
             <image>
-                <Image url="@org/example/firstsemfptolayerd/images/20250517_1847_AquariumDelight_simple_compose_01jvf6676cf0etpz269ndzhsq0.png" />
+                <Image url="@../images/20250517_1847_AquariumDelight_simple_compose_01jvf6676cf0etpz269ndzhsq0.png" />
             </image>
         </ImageView>
 
