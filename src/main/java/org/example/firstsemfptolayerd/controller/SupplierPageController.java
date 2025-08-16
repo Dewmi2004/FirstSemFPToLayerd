@@ -39,7 +39,7 @@ public class SupplierPageController {
         setNextId();
         loadTable();
 
-        CBoxSupplyType.getItems().addAll("Fish", "Plants", "Equipment", "Food", "Other");
+        CBoxSupplyType.getItems().addAll("Fish", "Plants", "Chemical", "Food");
     }
 
     private void setCellValueFactory() {

@@ -51,7 +51,6 @@ public class EmailUtil {
                 "Thank you,\nAquarium Management System";
         send(toEmail, subject, body);
     }
-
     public static void sendCustomerWelcomeEmail(String toEmail, String name) {
         String subject = "Welcome to Aquarium Shop!";
         String body = "Dear " + name + ",\n\n" +
@@ -59,7 +58,8 @@ public class EmailUtil {
                 "We’re excited to have you on board.\n\n" +
                 "Best regards,\nAquarium Shop Team";
         send(toEmail, subject, body);
-    }  public static void sendSupplierWelcomeEmail(String toEmail, String name) {
+    }
+    public static void sendSupplierWelcomeEmail(String toEmail, String name) {
         String subject = "Welcome to Aquarium Shop!";
         String body = "Dear " + name + ",\n\n" +
                 "Thank you for registering with us!\n\n" +
@@ -71,7 +71,7 @@ public class EmailUtil {
     public static void sendEmployeeWelcomeEmail(String toEmail, String name) {
         String subject = "Welcome to the Aquarium Shop Team!";
         String body = "Hi " + name + ",\n\n" +
-                "We’re excited to welcome you as our new Employee" + "!\n" +
+                "We’re excited to welcome you as our new Employee!\n" +
                 "Looking forward to working with you.\n\n" +
                 "Best,\nAquarium Shop Management";
         send(toEmail, subject, body);
